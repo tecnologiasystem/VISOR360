@@ -1,0 +1,57 @@
+{
+  "columns": {
+    "pais": "pais",
+    "inversionista": "inversionista",
+    "valor": "valor_recaudo",
+    "monto": "valor_recaudo",
+    "fecha": "fecha_recaudo",
+    "nombre_campana": "nombre_campana",
+    "campana": "nombre_campana"
+  },
+  "inversionistas_by_pais": {
+    "npl col": ["BANCOOMEVA", "CREDIVALORES", "IFC", "PA", "TUYA"],
+    "npl": ["BANCOOMEVA", "CREDIVALORES", "IFC", "PA", "TUYA"],
+    "acc": ["ADAMANTINE", "ACCION", "JCAP", "PRA", "INTERASEO"],
+    "acc col": ["ADAMANTINE", "ACCION", "JCAP", "PRA", "INTERASEO"],
+    "systemgroup": ["ADAMANTINE", "ACCION", "JCAP", "PRA"],
+    "peru": ["IFC", "PROPIA"],
+    "npl per": ["IFC", "PROPIA"],
+    "npl peru": ["IFC", "PROPIA"],
+    "chile": ["IFC"],
+    "npl chile": ["IFC"]
+  },
+  "pais_aliases": {
+    "1": "NPL COL",
+    "2": "ACC",
+    "3": "NPL PERU",
+    "4": "NPL CHILE",
+    "NPL": "NPL COL",
+    "ACC": "ACC",
+    "NPL PER": "PERU",
+    "NPL PERU": "PERU",
+    "NPL CHILE": "CHILE",
+    "SYSTEMGROUP COLOMBIA": "ACC"
+  },
+  "campanas_bd_mapping": {
+    "_descripcion": "Mapeo de campañas pequeñas del FE a nombres en vw_recaudos_portafolio",
+    "NPL": {
+      "Bancoomeva": null,
+      "Credivalores": "SYSTEMGROUP CREDIVALORES NPL",
+      "IFC": null,
+      "PA": null,
+      "TUYA": null
+    },
+    "ACC": {
+      "Accion": "SYSTEMGROUP ACCION FIDUCIARIA- DENTIX",
+      "Adamantine": "SYSTEMGROUP ADAMANTINE - COLPATRIA NPL",
+      "interaseo": null,
+      "jcap": "SYSTEMGROUP JCAP",
+      "pragroup": "SYSTEMGROUP PRA GROUP"
+    }
+  },
+  "fuentes_datos": {
+    "_descripcion": "Indica qué fuente usar para cada campaña",
+    "BD": ["SYSTEMGROUP CREDIVALORES NPL", "SYSTEMGROUP ACCION FIDUCIARIA- DENTIX", "SYSTEMGROUP ADAMANTINE - COLPATRIA NPL", "SYSTEMGROUP JCAP", "SYSTEMGROUP PRA GROUP", "SYSTEMGROUP COLOMBIA"],
+    "EXCEL": ["Bancoomeva", "IFC", "PA", "TUYA", "interaseo", "PERU", "CHILE"]
+  }
+}

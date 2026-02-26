@@ -1,0 +1,3297 @@
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   MODAL EN CONSTRUCCIÓN
+   ============================================ */
+.modal-construccion-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-construccion {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 50px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-construccion-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 36px;
+  color: white;
+}
+
+.modal-construccion h2 {
+  color: #1E3A8A;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.modal-construccion p {
+  color: #64748B;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.modal-construccion-btn {
+  background: linear-gradient(135deg, #1E3A8A 0%, #003087 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-construccion-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+}
+
+.tablero-financiero {
+  padding: 16px;
+  background: #FFFFFF;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* ===== CONTENEDOR GENERAL ===== */
+.tablero-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* 🔹 alinea todo a la izquierda */
+  gap: 28px;
+  /* separación entre banner y fecha */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* ===== BANNER AZUL ===== */
+.header-banner {
+  background-color: #0033A0;
+  border-radius: 0 50px 50px 0;
+  /* 🔹 redondeado solo a la derecha */
+  padding: 12px 60px 12px 45px;
+  /* 🔹 espaciado similar al diseño */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* texto alineado a la izquierda */
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  min-width: 480px;
+  /* 🔹 tamaño más largo */
+  height: 70px;
+  margin-left: 0;
+  /* 🔹 toca el borde izquierdo */
+}
+
+/* ===== TÍTULO ===== */
+.header-banner h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0;
+  line-height: 1;
+  font-style: italic;
+  color: #fff;
+}
+
+/* ===== SUBTÍTULO ===== */
+.header-banner p {
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.1;
+}
+
+/* ===== FECHA ===== */
+.header-date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  color: #002C8A;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+}
+
+/* ===== ETIQUETA DE DOS LÍNEAS ===== */
+.update-label-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.05;
+  margin: 0;
+  color: #002C8A;
+}
+
+/* ===== FECHA GRANDE ===== */
+.header-date strong {
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+/* Logo */
+.header-logo img {
+  max-height: 36px;
+  filter: brightness(0) invert(1);
+  /* 🔹 blanco sobre fondo azul */
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 12px;
+}
+
+.ebitda-card {
+  background: linear-gradient(135deg, #003087 0%, #0050C8 100%);
+  border: none;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 180px;
+  padding: 12px !important;
+}
+
+.ebitda-card h3 {
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+.ebitda-main {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.ebitda-item {
+  margin-bottom: 8px;
+}
+
+.ebitda-item:last-child {
+  margin-bottom: 0;
+}
+
+.ebitda-item .label {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.ebitda-item .value {
+  display: block;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.ebitda-desviacion {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.desv-value {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+.pais-title {
+  color: #003087;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #E8F2FF;
+  padding-bottom: 6px;
+}
+
+.pais-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Texto interno */
+.pais-label-small {
+  font-size: 9px;
+  color: #003087;
+  font-weight: 600;
+}
+
+.pais-value-large {
+  font-size: 14px;
+  font-weight: 700;
+  color: #003087;
+}
+
+.pais-badge-label {
+  display: block;
+  font-size: 9px;
+  color: #64748B;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.pais-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.pais-badge.blue {
+  background: #0050C8;
+  color: white;
+}
+
+.pais-badge.dark-blue {
+  background: #003087;
+  color: white;
+}
+
+.pais-forecast-row {
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px solid #FF8C00;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forecast-value-bold {
+  font-size: 12px;
+  font-weight: 700;
+  color: #003087;
+}
+
+/* EBITDA Card General Mejorado */
+
+.ebitda-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+.ebitda-label {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.ebitda-value {
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+}
+
+.ebitda-badges {
+  display: flex;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.badge-label {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.ebitda-desviacion {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.desv-label {
+  display: block;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+}
+
+.desv-value {
+  display: block;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Secciones Ingresos y Gastos Compactas */
+.section-container {
+  background: rgb(255, 255, 255);
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #E8F2FF;
+  height: 100%;
+}
+
+.section-title-inline {
+  font-size: 14px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 10px;
+}
+
+/* Tabs más compactos */
+.section-container .ant-tabs {
+  font-size: 11px;
+}
+
+.section-container .ant-tabs-tab {
+  padding: 4px 10px;
+  font-size: 11px;
+}
+
+/* PFG Section Compacto */
+
+.pfg-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pfg-label {
+  font-size: 11px;
+  color: #003087;
+  font-weight: 600;
+}
+
+.pfg-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #003087;
+}
+
+.pfg-indicator {
+  font-size: 14px;
+}
+
+.pfg-indicator.red {
+  color: #ff4d4f;
+}
+
+/* Negocios Section Compacta */
+.negocios-section {
+  margin-top: 10px;
+}
+
+.negocios-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 1px;
+}
+
+.acc-card {
+  background: linear-gradient(135deg, #0050C8 0%, #4A90E2 100%);
+}
+
+.npl-card {
+  background: linear-gradient(135deg, #003087 0%, #0050C8 100%);
+}
+
+.negocio-header {
+  font-size: 9px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+
+/* ======= GASTOS: LAYOUT CORREGIDO ======= */
+.gastos-comparacion {
+  margin-top: 10px;
+}
+
+/* Total Cards Compactos */
+.total-card {
+
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 🔹 Eliminar borde de la tarjeta de Desviación */
+.gasto-card.desviacion {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Gasto Tipo Cards Compactos */
+.gasto-tipo-card {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none !important;
+}
+
+.gasto-tipo-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 2px;
+}
+
+.gasto-tipo-sublabel {
+  font-size: 9px;
+  color: #64748B;
+  margin-bottom: 4px;
+}
+
+.gasto-tipo-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #003087;
+}
+
+/* --- Fix definitivo: forzar tamaño y peso de la fecha --- */
+.header-date strong,
+.update-date {
+  font-size: 30px !important;
+  /* 🔹 Aumenta el tamaño visual como en el PDF */
+  font-weight: 900 !important;
+  /* 🔹 Grosor máximo */
+  color: #001B60 !important;
+  /* 🔹 Azul corporativo */
+  letter-spacing: 0.5px;
+  /* 🔹 Espaciado elegante entre caracteres */
+  line-height: 1;
+}
+
+/* --- Grid visual para Margen EBITDA usando Ant Design --- */
+.margen-ebitda-section .ant-row {
+  margin: 0 8px;
+  /* 🔹 margen lateral limpio */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* --- Ajusta las columnas para que se vean simétricas --- */
+.margen-ebitda-section .ant-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Espaciado uniforme entre tarjetas --- */
+.margen-ebitda-section .ant-col .ant-card {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Orden visual: 4 tarjetas arriba, 3 abajo --- */
+.margen-ebitda-section .ant-row:first-of-type {
+  margin-bottom: 12px;
+  /* 🔹 separa las dos filas */
+}
+
+/* --- Hover suave en tarjetas blancas --- */
+.pais-card-white:hover {
+  border-color: #003087;
+  box-shadow: 0 0 6px rgba(0, 48, 135, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+/* --- Compacta las tarjetas para parecerse al diseño de Systemgroup --- */
+.ebitda-card,
+.pais-card-white {
+  min-height: 160px !important;
+  /* 🔹 menos alto que antes */
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+}
+
+.ebitda-card.general-card {
+  background: linear-gradient(180deg, #003087 0%, #0050C8 100%);
+  color: white;
+}
+
+.pais-card-white h3,
+.ebitda-card h3 {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.margen-ebitda-section .section-title {
+  margin-bottom: 14px;
+  margin-top: 14px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+  color: #001B60;
+  padding-left: 12px;
+}
+
+/* 🔹 Elimina el borde o línea naranja del contenedor superior */
+.ant-layout-content,
+.margen-ebitda-section {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* 🔹 Asegura que los títulos no tengan decoraciones adicionales */
+.margen-ebitda-section .section-title {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* === NUEVO LAYOUT TIPO MAQUETA === */
+
+.pais-maqueta {
+  background: #ffffff;
+  border: none;
+  /* ✅ sin borde externo */
+  border-radius: 0;
+  /* ✅ bordes rectos */
+  padding: 8px 10px;
+  color: #003087;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: none;
+  /* ✅ sin sombra */
+}
+
+.pais-maqueta .forecast {
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px solid #ff8c00;
+  border-radius: 4px;
+  padding: 4px 6px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.pais-maqueta .desviacion-box {
+  background: #003087;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 6px;
+  font-weight: 700;
+}
+
+/* === Fix real para mostrar borde azul en "A la Fecha / Porcentaje" === */
+.pais-card-white .pais-main-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border: 2px solid #003087 !important;
+  /* 🔹 Borde azul visible */
+  border-radius: 6px !important;
+  padding: 8px 10px !important;
+  background: #ffffff !important;
+  margin-bottom: 6px !important;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 5;
+  /* 🔹 Lo trae al frente del borde gris externo */
+}
+
+/* === Ajuste de ancho y distribución de las tarjetas país === */
+
+.pais-maqueta {
+  max-width: 340px;
+  /* 🔹 reduce el ancho máximo de cada tarjeta */
+  margin: 0 auto;
+  /* 🔹 centra visualmente cada tarjeta */
+  padding: 10px 12px;
+}
+
+/* 🔹 Ajuste visual para que el texto no se pegue a los bordes */
+.pais-maqueta h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* === Separación entre "A la Fecha" y "Porcentaje" === */
+.pais-maqueta .fila {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  border: 2px solid #003087 !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  background: #ffffff !important;
+  margin-bottom: 6px !important;
+  box-shadow: none !important;
+  column-gap: 30px !important;
+  /* 🔹 agrega espacio entre ambos bloques */
+}
+
+/* 🔹 Asegura que los valores no se junten dentro de cada columna */
+.pais-maqueta .fila .box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pais-maqueta .fila .box.right {
+  align-items: flex-end;
+  /* 🔹 mantiene el porcentaje alineado a la derecha */
+}
+
+/* === Reacomodo de "Desviación" al lado derecho del Forecast === */
+.pais-maqueta .forecast-desviacion-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 8px;
+  /* 🔹 separa Forecast de Desviación */
+}
+
+/* Forecast mantiene su estilo */
+.pais-maqueta .forecast {
+  flex: 2;
+  /* 🔹 ocupa más espacio */
+}
+
+/* Desviación se hace más angosta y a la derecha */
+.pais-maqueta .desviacion-box {
+  flex: 1;
+  /* 🔹 más angosto */
+  background: #003087;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 8px 6px;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === ESTRUCTURA PRINCIPAL: Bloque con caja azul lateral === */
+.fila-horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 6px;
+  /* 🔹 separa visualmente de forecast */
+}
+
+/* === COLUMNA DE DATOS (A la Fecha / Porcentaje + Forecast) === */
+.columna-datos {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #ffffff;
+}
+
+/* === BLOQUE SUPERIOR: A la Fecha / Porcentaje === */
+.bloque-superior {
+  border: 2px solid #003087;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === Fila de A la Fecha / Porcentaje === */
+.fila-datos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+/* === Texto interno === */
+.box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box.right {
+  text-align: right;
+}
+
+.label {
+  font-size: 9px;
+  color: #003087;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #003087;
+}
+
+/* === FORECAST (bloque naranja) === */
+.columna-datos .forecast {
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px solid #ff8c00;
+  border-radius: 4px;
+  padding: 4px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === CAJA AZUL LATERAL DERECHA === */
+.desviacion-box-lateral {
+  flex: 1;
+  background: #003087;
+  color: #ffffff;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px;
+  /* 🔹 menos relleno */
+  min-width: 75px;
+  /* 🔹 ligeramente más angosta */
+  min-height: 55px;
+  /* 🔹 altura reducida */
+}
+
+/* === Texto dentro de desviación === */
+.desviacion-box-lateral .label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.desviacion-box-lateral .value {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+
+/* === GRID CORREGIDO: General a la izquierda, países a la derecha === */
+.ebitda-grid-maqueta {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  /* General más ancho */
+  grid-template-rows: auto auto;
+  /* Dos filas */
+  gap: 18px 20px;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* General ocupa dos filas completas */
+.ebitda-general {
+  grid-row: span 2;
+}
+
+/* 🔹 Alineación fina de la tarjeta "General" */
+.ebitda-general {
+  align-self: start;
+  /* 🔹 fuerza alineación superior */
+  margin-top: 80px;
+  /* 🔹 sube ligeramente la tarjeta */
+}
+
+/* === Ajuste de alineación general === */
+.margen-ebitda-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* 🔹 mueve todo el bloque hacia la derecha */
+  padding-right: 40px;
+  /* 🔹 espacio de margen derecho */
+}
+
+/* === Ajuste del título "Margen EBITDA" === */
+.margen-ebitda-section .section-title {
+  text-align: left !important;
+  /* 🔹 Forza alineación a la izquierda */
+  width: 100%;
+  padding-left: 40px;
+  /* 🔹 Margen uniforme con las tarjetas */
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #001B60;
+  /* 🔹 Azul corporativo */
+  font-style: italic;
+}
+
+
+/* === Aplica el mismo borde azul del bloque superior a la tarjeta "General" === */
+.ebitda-general .columna-datos .fila-datos {
+  border: 2px solid #003087;
+  /* 🔹 Borde azul igual que los países */
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: #ffffff;
+  margin-bottom: 6px;
+  box-shadow: none;
+}
+
+/* Ajuste interno de texto para mantener consistencia */
+.ebitda-general .columna-datos .box .label {
+  color: #003087;
+}
+
+.ebitda-general .columna-datos .box .value {
+  color: #003087;
+}
+
+.pfg-item {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #001B60;
+}
+
+.pfg-label {
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.pfg-indicator.red {
+  color: #FF0000;
+  font-size: 20px;
+  margin-left: 4px;
+}
+
+/* === Tarjetas tipo Systemgroup (Negocios) === */
+.negocio-header {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #003087 !important;
+  margin-bottom: 4px !important;
+  text-transform: none !important;
+}
+
+.negocio-value {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #003087 !important;
+  border: 2px solid #003087 !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.negocio-desviacion.orange {
+  background: #FF8C00 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 4px 6px;
+  display: inline-block;
+}
+
+/* === Limpieza visual solo para Ingresos === */
+.section-container:first-of-type {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding-top: 0 !important;
+}
+
+/* === Estilo personalizado de tabs para Ingresos === */
+.section-container:first-of-type .ant-tabs {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Oculta la línea azul inferior típica de Ant Design */
+.section-container:first-of-type .ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+
+/* === Estilo de cada pestaña === */
+.section-container:first-of-type .ant-tabs-tab {
+  border: 2px solid #003087 !important;
+  border-radius: 6px !important;
+  padding: 6px 20px !important;
+  margin-right: 10px !important;
+  font-weight: 700;
+  font-style: italic;
+  color: #003087 !important;
+  background: transparent !important;
+  transition: all 0.3s ease;
+}
+
+/* === Estado activo (General) === */
+.section-container:first-of-type .ant-tabs-tab-active {
+  background: #ffffff !important;
+  color: white !important;
+  border-color: #003087 !important;
+}
+
+/* === Texto dentro de las tabs === */
+.section-container:first-of-type .ant-tabs-tab-btn {
+  font-size: 14px;
+}
+
+/* === Flechas de navegación (opcional, si las tienes visibles) === */
+.section-container:first-of-type .ant-tabs-nav-wrap::before,
+.section-container:first-of-type .ant-tabs-nav-wrap::after {
+  display: none !important;
+}
+
+/* === Flechas laterales para las tabs de Ingresos === */
+.section-container:first-of-type .ant-tabs-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Contenedor de las flechas */
+.section-container:first-of-type .ant-tabs-nav::before,
+.section-container:first-of-type .ant-tabs-nav::after {
+  content: "";
+  display: none;
+  /* ocultamos los bordes internos de ant design */
+}
+
+/* Efecto hover */
+.section-container:first-of-type::before:hover,
+.section-container:first-of-type::after:hover {
+  color: #0050c8;
+}
+
+/* === Ajustes visuales para las tabs de INGRESOS === */
+.section-container:first-of-type .ant-tabs-tab {
+  height: 32px !important;
+  /* 🔹 reduce la altura total */
+  padding: 4px 14px !important;
+  /* 🔹 menos relleno vertical y horizontal */
+  margin-right: 6px !important;
+  /* 🔹 reduce espacio entre botones */
+  border-radius: 6px !important;
+  /* 🔹 esquinas más suaves */
+  line-height: 1.1 !important;
+}
+
+/* === Ajusta la tipografía para mantener equilibrio visual === */
+.section-container:first-of-type .ant-tabs-tab-btn {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+
+.pfg-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+
+/* === BLOQUE PFG CENTRADO Y CON LÍNEA COMPLETA === */
+.pfg-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* 🔹 distribuye PFG y Forecasta */
+  width: 100%;
+  /* 🔹 usa todo el ancho disponible */
+  max-width: 680px;
+  /* 🔹 evita que crezca demasiado */
+  margin: 20px auto;
+  /* 🔹 centra horizontalmente */
+  padding-bottom: 8px;
+  /* 🔹 línea naranja extendida */
+  font-family: 'MontserratLocal', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: 0.2px;
+  color: #003087;
+  border-radius: 0px !important;
+}
+
+.pfg-label,
+.pfg-value {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  /* 🔹 igual tamaño para ambos */
+  color: #003087 !important;
+}
+
+.pfg-indicator {
+  width: 24px;
+  height: 24px;
+  background: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 45px;
+  position: relative;
+  top: -2px;
+}
+
+/* === Fuente local Montserrat aplicada al bloque PFG === */
+.pfg-section,
+.pfg-section .pfg-label,
+.pfg-section .pfg-value {
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.3px;
+  color: #003087;
+}
+
+/* === Flechas independientes para Ingresos === */
+.ingresos-tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Flecha izquierda */
+.ingresos-tabs .arrow-left {
+  position: absolute;
+  left: -5px;
+  /* 🔹 puedes ajustar a gusto */
+  top: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #003087;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Flecha derecha */
+.ingresos-tabs .arrow-right {
+  position: absolute;
+  right: 5px;
+  /* 🔹 puedes mover esta sin afectar la otra */
+  top: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #003087;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Hover effect */
+.ingresos-tabs .arrow-left:hover,
+.ingresos-tabs .arrow-right:hover {
+  color: #0050C8;
+}
+
+
+/* === TABS DE NEGOCIOS — COMPACTOS Y ALINEADOS === */
+div.negocios-tabs.ant-tabs {
+  width: 100%;
+}
+
+div.negocios-tabs.ant-tabs .ant-tabs-nav {
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-bottom: 4px !important;
+  /* 🔹 menos separación del título */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 5px !important;
+  /* 🔹 separación exacta entre botones */
+}
+
+/* Quita la línea inferior azul de Ant Design */
+div.negocios-tabs.ant-tabs .ant-tabs-ink-bar {
+  display: none !important;
+}
+
+/* === Botones base (Mes 1, Mes 2, Mes 3) === */
+div.negocios-tabs.ant-tabs .ant-tabs-tab {
+  background: #001B97 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #001B97 !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-size: 14px !important;
+  /* 🔹 más pequeño */
+  padding: 4px 18px !important;
+  /* 🔹 tamaño compacto */
+  line-height: 1 !important;
+  text-align: center !important;
+  transition: all 0.2s ease-in-out !important;
+  height: 32px !important;
+  /* 🔹 más bajo */
+  box-shadow: none !important;
+}
+
+/* Hover suave */
+div.negocios-tabs.ant-tabs .ant-tabs-tab:hover {
+  filter: brightness(1.1) !important;
+}
+
+/* === Tab activo (General) === */
+div.negocios-tabs.ant-tabs .ant-tabs-tab-active {
+  background: #FFFFFF !important;
+  color: #001B97 !important;
+  border: 1.5px solid #001B97 !important;
+  border-radius: 0 !important;
+}
+
+/* Texto dentro del tab */
+div.negocios-tabs.ant-tabs .ant-tabs-tab-btn {
+  color: inherit !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+}
+
+/* Flechita solo para el tab "General" activo */
+div.negocios-tabs.ant-tabs .ant-tabs-tab-active .t-general::after {
+  content: " ▼";
+  font-size: 12px;
+  font-weight: 700;
+  position: relative;
+  top: -1px;
+  left: 2px;
+}
+
+/* === FIX FINAL: espacio exacto entre botones de Negocios === */
+div.negocios-tabs.ant-tabs .ant-tabs-tab {
+  margin-right: 5px !important;
+  /* 🔹 separación mínima exacta */
+}
+
+div.negocios-tabs.ant-tabs .ant-tabs-tab+.ant-tabs-tab {
+  margin-left: 0 !important;
+  /* 🔹 elimina el margen interno de Ant Design */
+}
+
+/* === Ajuste fino: mover los botones de "Negocios" ligeramente a la derecha === */
+.negocios-tabs {
+  margin-left: 230px !important;
+  /* 🔹 Ajusta el valor según necesites (20–60px) */
+  position: relative;
+  top: -30px;
+  /* 🔹 súbelos; ajusta entre -3px y -8px según tu gusto */
+}
+
+.linea-naranja-ingresos {
+  width: 100%;
+  height: 3px;
+  background-color: #ff8c00;
+  border-radius: 8px;
+  margin: 12px 0 22px 0;
+}
+
+
+
+/* === Ajuste de tamaño y alineación de las cajas ACC / NPL === */
+.negocio-value {
+  display: inline-block;
+  border: 2px solid #003087 !important;
+  border-radius: 4px;
+  padding: 2px 6px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #003087 !important;
+  width: 115px !important;
+  /* 🔹 más angosta que antes */
+  text-align: center;
+  margin-left: 6px;
+  line-height: 1.1;
+}
+
+/* 🔸 Agrupa ACC: $0000000 en la misma línea */
+.negocio-header+.negocio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+/* === Alinear ACC y NPL uno al lado del otro === */
+.negocios-metricas {
+  display: flex;
+  justify-content: flex-start;
+  /* 🔹 ambos alineados a la izquierda */
+  align-items: flex-start;
+  gap: 40px;
+  /* 🔹 espacio entre ACC y NPL — puedes ajustar (30–50px) */
+  margin-top: 10px;
+}
+
+/* 🔹 Cada bloque ACC/NPL se comporta como una columna compacta */
+.negocio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+
+/* === Caja de valor más compacta y alineada === */
+.negocio-value {
+  display: inline-block;
+  border: 2px solid #003087 !important;
+  border-radius: 4px;
+  padding: 4px 10px !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #003087 !important;
+  width: 130px !important;
+  /* 🔹 ajusta si aún es muy ancha */
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* === Forecast tipo maqueta: texto arriba, caja azul abajo === */
+
+
+.forecast-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 2px;
+}
+
+.negocio-forecast-box {
+  background: #003087;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  width: fit-content;
+  min-width: 130px;
+}
+
+/* === Fila contenedora === */
+.desv-forecast-row {
+  display: flex;
+  align-items: flex-start;
+  /* 🔹 alinea los títulos arriba */
+  justify-content: flex-start;
+  gap: 20px;
+  /* 🔹 separación pareja entre bloques */
+  margin-top: 8px;
+}
+
+/* === Cada bloque (Desviación / Forecast) === */
+.desv-box,
+.forecast-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 🔹 centra texto y caja */
+  justify-content: flex-start;
+  text-align: center;
+  min-width: 110px;
+  /* 🔹 igual ancho para ambos */
+}
+
+/* === Etiquetas arriba === */
+.desv-label,
+.forecast-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 4px;
+  display: block;
+  text-align: center;
+}
+
+/* === Unificación tipográfica con PFG === */
+.negocio-label,
+.negocio-value {
+  font-family: 'MontserratLocal', sans-serif !important;
+  color: #003087 !important;
+  font-weight: 800 !important;
+  /* 🔹 mismo peso que PFG */
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+
+/* === ACC: y NPL: (etiquetas principales) === */
+.negocio-label {
+  font-size: 22px !important;
+  /* 🔹 igual a PFG visualmente */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* === Caja de valor ($0000000) === */
+.negocio-value {
+  display: inline-block;
+  border: 2px solid #003087 !important;
+  border-radius: 4px;
+  padding: 2px 10px !important;
+  font-size: 20px !important;
+  /* 🔹 balanceado con ACC */
+  text-align: center;
+  min-width: 130px;
+}
+
+/* === CORRECCIÓN FINAL DE ALINEACIÓN === */
+.desv-forecast-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  /* ⬅️ antes estaba "center" */
+  gap: 12px !important;
+  /* 🔹 espacio exacto entre naranja y azul */
+  margin-top: 8px !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+/* === BLOQUES INTERNOS (Desviación / Forecast) === */
+.desv-box,
+.forecast-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  /* ⬅️ izquierda, no centrado */
+  justify-content: flex-start !important;
+  gap: 4px !important;
+}
+
+/* === Etiquetas de los títulos === */
+.desv-label,
+.forecast-label {
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  color: #003087 !important;
+  margin-bottom: 3px !important;
+  text-align: left !important;
+}
+
+/* Caja NARANJA (Desviación) — misma altura/tamaño que la azul */
+.desv-forecast-row .desv-box .negocio-desviacion,
+.negocio-desviacion.orange {
+  background: #f7941d !important;
+  color: #fff !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  /* ⬅️ igual que la azul */
+  line-height: 1 !important;
+  height: 42px !important;
+  /* ⬅️ misma altura */
+  padding: 5px 16px !important;
+  /* ⬅️ no aumenta el ancho */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  min-width: 80px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Caja AZUL (Forecast) */
+.desv-forecast-row .forecast-box .negocio-forecast,
+.negocio-forecast {
+  background: #002f87 !important;
+  color: #fff !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  /* ⬅️ igual que la naranja */
+  line-height: 1 !important;
+  height: 42px !important;
+  padding: 5px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  min-width: 140px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Alineación horizontal de ambos bloques (no tocar anchos) */
+.desv-forecast-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 1px !important;
+}
+
+.desv-box,
+.forecast-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 130px !important;
+  /* ancho base igual para títulos/cajas */
+}
+
+/* === CAJA NARANJA (Desviación) === */
+.negocio-desviacion {
+  background: #f7941d !important;
+  color: #fff !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  height: 42px !important;
+  padding: 5px 18px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  /* ⬅️ igual ancho base que la azul */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* === CAJA AZUL (Forecast) === */
+.negocio-forecast {
+  background: #002f87 !important;
+  color: #fff !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  height: 42px !important;
+  padding: 5px 18px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  /* ⬅️ mismo ancho que la naranja */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* === Corrección: separar alineación de ACC/NPL de las cajas de abajo === */
+
+/* 🔹 Mantiene ACC y NPL en su lugar original */
+.negocio-card {
+  position: relative;
+}
+
+/* 🔹 Mueve solo las cajas (Desviación y Forecast) sin afectar ACC/NPL */
+.negocio-card .desv-forecast-row {
+  position: relative;
+  left: -45px;
+  /* ⬅️ Ajusta este valor (entre -25px y -45px) según necesites */
+}
+
+/* 🔹 Alinea las dos tarjetas (ACC y NPL) entre sí */
+.negocios-metricas {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50px;
+  /* 🔹 Espaciado entre ACC y NPL */
+  margin-left: 0 !important;
+  /* ⬅️ elimina desplazamiento general */
+}
+
+
+
+/* === Flechas independientes para la sección de Gastos === */
+.gastos-tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Flecha izquierda (Gastos) */
+.gastos-tabs .arrow-left {
+  position: absolute;
+  left: -15px;
+  /* 🔹 ajusta según el ancho de tus tabs */
+  top: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #003087;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Flecha derecha (Gastos) */
+.gastos-tabs .arrow-right {
+  position: absolute;
+  right: -15px;
+  /* 🔹 igual que la izquierda pero al otro extremo */
+  top: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #003087;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Hover effect */
+.gastos-tabs .arrow-left:hover,
+.gastos-tabs .arrow-right:hover {
+  color: #0050C8;
+  transform: scale(1.1);
+}
+
+/* === Forzar "Gasto Ejecutado" a una sola línea sin reducir tamaño === */
+.gasto-card.ejecutado .gasto-label {
+  white-space: nowrap !important;
+  /* 🔹 evita el salto de línea */
+  display: inline-block !important;
+  /* 🔹 mantiene el texto en bloque */
+  text-align: center !important;
+  /* 🔹 centrado visual */
+  width: 100% !important;
+  /* 🔹 asegura que se mantenga alineado */
+  line-height: 1.2 !important;
+  /* 🔹 mantiene proporción del texto */
+}
+
+
+/* Centrar y estabilizar el VS */
+.gastos-top-row .vs-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+  /* baja ligeramente el VS */
+}
+
+.gastos-top-row .vs-badge {
+  background-color: #003087;
+  color: #fff;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+/* Evita que Presupuesto se corte */
+.gasto-card.presupuesto .gasto-label {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Desviación más cerca y en línea */
+.desv-col {
+  margin-left: -10px;
+  /* ajusta hacia la izquierda */
+}
+
+/* Desviación un poco más compacta */
+.gasto-card.desviacion .gasto-value {
+  min-width: 100px;
+  font-size: 24px;
+}
+
+
+/* Tarjetas */
+.gasto-card {
+  background: white;
+  text-align: center;
+  border: none;
+}
+
+.gasto-label {
+  font-family: 'MontserratLocal', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.gasto-value {
+  display: inline-block;
+  font-family: 'MontserratLocal', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #003087;
+  border: 2px solid #003087;
+  border-radius: 6px;
+  padding: 6px 20px;
+  min-width: 190px;
+  box-sizing: border-box;
+}
+
+/* === VS centrado con altura corregida === */
+.vs-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  position: relative;
+}
+
+.vs-line {
+  height: 2px;
+  width: 25px;
+  background-color: #003087;
+  border-radius: 2px;
+}
+
+.vs-badge {
+  background-color: #003087;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  position: relative;
+  top: 25px;
+  /* 🔹 baja el círculo */
+  right: 1px;
+}
+
+
+/* Alineación general del bloque */
+.gastos-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  /* 🔹 antes era 40px → más compacto */
+  flex-wrap: nowrap;
+  margin-top: 16px;
+}
+
+
+/* === Desviación más compacta === */
+.gasto-card.desviacion .gasto-value {
+  min-width: 100px;
+  font-size: 25px;
+}
+
+/* === Borde amarillo solo para Presupuesto === */
+.gasto-card.presupuesto .gasto-value {
+  border: 2px solid #f7941d !important;
+  /* 🔹 Amarillo dorado */
+  color: #003087 !important;
+  /* 🔹 Mantiene el texto azul */
+}
+
+/* === LÍNEA AMARILLA DEBAJO DEL BLOQUE DE GASTOS === */
+.gastos-comparacion {
+  position: relative;
+  /* Necesario para posicionar la línea */
+  padding-bottom: 15px;
+  /* deja espacio para la línea */
+  margin-bottom: 10px;
+}
+
+.gastos-comparacion::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* justo debajo de las tarjetas */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  /* puedes subir o bajar el porcentaje */
+  height: 3px;
+  background-color: #f7941d;
+  /* Amarillo dorado */
+  border-radius: 2px;
+}
+
+
+
+/* === Alinear valores a la derecha del texto en una misma línea === */
+.total-card {
+  display: flex;
+  align-items: center;
+  /* Alinea texto y valor verticalmente */
+  justify-content: flex-start;
+  /* Los mantiene alineados hacia la izquierda */
+  gap: 12px;
+  /* Espacio entre texto y contenedor azul */
+  text-align: left;
+  padding: 0 10px;
+}
+
+/* Caja azul de valor */
+.total-card .total-value {
+  background-color: #003087;
+  color: white !important;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 110px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin: 0;
+  display: inline-block;
+  flex-shrink: 0;
+  /* 🔹 Evita que se reduzca el tamaño */
+}
+
+/* Variante amarilla */
+.total-card .total-value.blue {
+  background-color: #FFD700;
+  color: #003087 !important;
+}
+
+/* === Total y Participación en una misma línea === */
+.total-card.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  gap: 10px;
+}
+
+/* === Alinear texto y valor en una misma línea dentro de las tarjetas === */
+.total-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* 🔹 Texto a la izquierda, valor a la derecha */
+  gap: 2px;
+  padding: 4px 8px;
+}
+
+/* 🔹 Texto con salto permitido */
+.total-content .total-label {
+  font-size: 16px;
+  color: #003087;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: normal;
+  /* ✅ Permite salto de línea automático */
+  word-wrap: break-word;
+  /* ✅ Evita desbordes */
+  font-family: 'MontserratLocal', sans-serif;
+}
+
+/* 🔹 Caja azul */
+.total-content .total-value {
+  background-color: #003087;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  min-width: 110px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+
+}
+
+/* 🔹 Variante amarilla */
+.total-content .total-value.yellow {
+  background-color: #003087;
+  color: white;
+}
+
+/* 🔹 Aplica solo al primer bloque (Total gastado...) */
+.total-content:first-of-type .total-label {
+  max-width: 190px;
+  /* 🔹 ancho más ajustado → solo 2 líneas */
+  min-width: 180px;
+  /* 🔹 sin espacio inválido */
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* 🔹 Reduce solo el ancho del valor azul de “Participación en el gasto” */
+.participacion-gasto .total-value {
+  min-width: 70px !important;
+  /* 🔹 más angosto */
+  padding: 6px 10px !important;
+  text-align: center;
+}
+
+/* 🔹 Reduce el espacio entre la línea amarilla y los totales */
+.total-section {
+  margin-top: 0px !important;
+  /* 🔹 elimina margen superior excesivo */
+  padding-top: 4px !important;
+  /* 🔹 deja un pequeño respiro visual */
+}
+
+/* 🔹 Ajuste adicional si la estructura usa .total-content directamente */
+.total-content {
+  margin-top: 0px !important;
+  padding-top: 4px !important;
+}
+
+
+/* Reduce el espacio debajo del bloque superior (donde está la línea amarilla) */
+.gastos-comparacion {
+  margin-bottom: 6px !important;
+  /* antes tenías ~10px */
+}
+
+/* La fila de totales: pega la fila a la línea amarilla */
+.gastos-totales-row {
+  margin-top: -6px !important;
+  /* si quieres aún menos, pon 0 o 4px */
+  padding-top: 0 !important;
+}
+
+/* Por si algún Card agrega separación vertical extra */
+.gastos-totales-row .total-card {
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Y dentro del contenido de cada total, nada de margen extra arriba */
+.gastos-totales-row .total-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 🔶 Línea naranja debajo de la sección de totales */
+.linea-naranja-inferior {
+  width: 100%;
+  height: 3px;
+  background-color: #FF8C00;
+  /* naranja corporativo */
+  margin-top: 1px;
+  /* espacio mínimo arriba */
+  margin-bottom: 12px;
+  /* deja aire debajo */
+  border-radius: 2px;
+}
+
+/* === Gastos Detallados (Administrativo / Operativo) === */
+.gastos-detallados-row {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Contenedor general del texto y valor */
+.detalle-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  /* 🔹 Espacio pequeño entre texto y contenedor azul */
+  padding: 4px 6px;
+}
+
+/* Texto principal */
+.detalle-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #003087;
+  font-family: 'MontserratLocal', sans-serif;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+/* Subtexto gris debajo del título */
+.detalle-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+/* Caja azul con el valor */
+.detalle-value {
+  background-color: #003087;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  min-width: 110px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 Eliminar borde y sombra de las tarjetas de detalle */
+.detalle-card {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  /* 🔹 fondo limpio */
+  padding: 0 !important;
+}
+
+.section-container .linea-naranja-inferior {
+  width: 100% !important;        /* ocupa solo el ancho del contenedor Gastos */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: block !important;
+}
+
+/* ============================================================
+   ⭐ Transición suave para tarjetas EBITDA / País
+   ============================================================ */
+
+.pais-maqueta,
+.ebitda-general {
+  transition: all 0.25s ease-in-out !important;
+}
+
+/* ============================================================
+   🛠️ BREAKPOINT CRÍTICO: 1277px → 1025px
+   Evita que el tablero se rompa ANTES del modo tablet
+   ============================================================ */
+@media (max-width: 1277px) {
+
+  /* HEADER */
+  .header-banner {
+    min-width: 380px !important;
+    padding: 10px 30px !important;
+  }
+
+   /* === GRID 3 COLUMNAS (Países) === */
+  .ebitda-grid-maqueta {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px !important;
+    padding: 0 40px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* === GENERAL CENTRADO Y REDUCIDO === */
+  .ebitda-general {
+    grid-column: 1 / 4 !important;
+    width: 70% !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  /* === TARJETAS PAÍS (Altura reducida, menos cuadradas) === */
+  .pais-maqueta {
+    background: #ffffff;
+    border: 1.5px solid #dbe8ff;
+    border-radius: 10px;
+    padding: 10px !important;
+    height: 170px !important;      /* ← ALTURA REDUCIDA */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  /* Contenedor horizontal */
+  .fila-horizontal {
+    display: flex;
+    gap: 8px !important;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  /* Caja azul de desviación (más compacta) */
+  .desviacion-box-lateral {
+    min-width: 60px !important;
+    min-height: 60px !important;
+    padding: 6px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Bloque superior más bajo */
+  .bloque-superior {
+    min-height: 45px !important;
+    padding: 6px !important;
+  }
+
+  /* Forecast más delgado */
+  .forecast {
+    min-height: 40px !important;
+    padding: 6px 8px !important;
+  }
+
+  .columna-datos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /*--------------------------------------------*/
+
+   /* --- 1️⃣ MOVER EL TÍTULO “Ingresos” A LA DERECHA --- */
+  .section-title-inline {
+    margin-left: 25px !important;   /* 🔥 mueve el título un poco a la derecha */
+  }
+
+  /* --- 2️⃣ REDUCIR ESPACIO ENTRE FLECHAS Y TABS --- */
+  .ingresos-tabs {
+    gap: 2px !important;           /* 🔥 flechas más pegadas a los tabs */
+    padding-left: 1px !important;  /* 🔥 reduce margen izquierdo */
+    padding-right: 1px !important; /* 🔥 reduce margen derecho */
+  }
+
+  /* Flechas más pegadas al contenido */
+  .ingresos-tabs .arrow-left,
+  .ingresos-tabs .arrow-right {
+    padding: 0 12px !important;     /* 🔥 reduce espacio alrededor de flechas */
+    margin: 0 !important;
+  }
+
+  /* --- 3️⃣ Hacer los tabs aún MÁS COMPACTOS --- */
+  .ingresos-tabs .ant-tabs-nav-list {
+    gap: 4px !important;           /* 🔥 menos espacio entre los tabs */
+  }
+
+  .ingresos-tabs .ant-tabs-tab {
+    padding-left: 6px !important;  /* 🔥 antes 8px → ahora más compacto */
+    padding-right: 6px !important;
+    margin: 0 !important;
+  }
+
+  /*--------------------------------------*/
+
+  /* Quitamos márgenes que rompían la alineación */
+  .margen-ebitda-section {
+    padding-right: 0 !important;
+    align-items: flex-start !important;
+  }
+
+  .margen-ebitda-section .section-title {
+    padding-left: 20px !important;
+  }
+
+  /* QUITAR desplazamiento obligatorio */
+  .negocios-tabs {
+    margin-left: 0 !important;
+    top: 0 !important;
+  }
+
+ /* Contenedor de PFG más compacto */
+  .pfg-section {
+    display: flex;
+    flex-direction: row;          /* 🔥 en línea */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 42px;                    /* espacio entre PFG y Forecasta */
+    flex-wrap: wrap;              /* si falta espacio, baja bonito */
+    margin: 10px 0 20px 0;
+    padding: 4px 0;
+    
+  }
+
+  /* Grupo interno */
+  .pfg-group {
+    display: flex;
+    flex-direction: row;          /* 🔥 en línea */
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;          /* evita que se parta feo */
+  }
+
+  .pfg-label {
+    font-weight: 700;
+  }
+
+  .pfg-value {
+    font-weight: 800;
+    color: #001a66;
+  }
+
+  /* El circulito rojo existente */
+  .pfg-indicator {
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: -10px;
+  }
+
+   .linea-naranja-ingresos {
+     width: 93% !important;
+  }
+
+  .negocios-title {
+    margin-bottom: 6px;
+  }
+
+  .negocios-metricas {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: 0 !important;
+}
+
+
+  /*--------------Gastos-----------*/
+  
+ 
+  /* Cada tab individual */
+  .gastos-tabs .ant-tabs-tab {
+    padding-left: 6px !important;   /* 🔥 antes eran demasiado anchos */
+    padding-right: 6px !important;
+    margin: 0 !important;
+  }
+ 
+  /* El contenedor que agrega padding extra */
+  .gastos-tabs .ant-tabs-nav-wrap {
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .gastos-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espacio mínimo */
+ }
+
+.gastos-tabs-inner {
+  display: flex;
+  flex-grow: 0;             /* ❗ NO dejar que se expanda */
+  flex-shrink: 1;           /* ❗ Permitir que se ajuste */
+  width: auto !important;   /* ❗ Elimina expansión al 100% */
+}
+
+.gastos-tabs-inner .ant-tabs,
+.gastos-tabs-inner .ant-tabs-nav,
+.gastos-tabs-inner .ant-tabs-nav-wrap {
+  width: auto !important; /* ❗ Ant Design deja de ocupar todo el ancho */
+}
+
+.gastos-tabs-inner .ant-tabs-nav-list {
+  gap: 17px !important; /* Puedes ajustarlo */
+}
+
+.gastos-tabs .arrow-left,
+.gastos-tabs .arrow-right {
+  padding: 0 14px;
+  font-size: 23px;
+  cursor: pointer;
+  margin-top: -1px;
+}
+  /*--------------------------------*/
+
+  .gasto-value {
+    display: inline-block;
+    font-family: 'MontserratLocal', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #003087;
+    border: 2px solid #003087;
+    border-radius: 6px;
+    padding: 6px 20px;
+    min-width: 150px;
+    box-sizing: border-box;
+  }
+
+  .gasto-card.desviacion .gasto-value {
+    min-width: 100px;
+    font-size: 24px;
+ } 
+
+  .gastos-top-row .gasto-card {
+    height: 75px !important;     /* 🔥 todas la misma altura */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;  /* 🔥 contenido centrado */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .gasto-card .gasto-label {
+    margin-bottom: 2px !important; /* evitar saltos de texto */
+  }
+
+  .vs-badge {
+    align-self: center !important;   /* 🔥 asegura centro absoluto */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+     top: 12px !important; /* antes 25px → lo subimos */
+  }
+
+  /* Asegurar que las tarjetas no se aplasten */
+  .gasto-card {
+    flex-shrink: 0 !important;      /* 🔥 no se comprimen */
+  }
+
+  /* === LÍNEA AMARILLA DEBAJO DEL BLOQUE DE GASTOS === */
+.gastos-comparacion {
+  position: relative;
+  /* Necesario para posicionar la línea */
+  padding-bottom: 15px;
+  /* deja espacio para la línea */
+  margin-bottom: 10px;
+}
+
+.gastos-comparacion::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* justo debajo de las tarjetas */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98%;
+  /* puedes subir o bajar el porcentaje */
+  height: 3px;
+  background-color: #f7941d;
+  /* Amarillo dorado */
+  border-radius: 2px;
+}
+
+    /* Mantener 2 columnas lado a lado sin romper */
+  .gastos-totales-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+  }
+
+  /* Usar el sistema real de ANT GRID ↓ */
+  .gastos-totales-row > .ant-col {
+    flex: 0 0 49% !important;    /* 🔥 este es el truco CORRECTO */
+    max-width: 49% !important;   /* 🔥 no % arbitrario como antes */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Tarjeta más compacta, no se estira */
+  .total-card {
+    width: 100% !important;
+    padding: 12px !important;
+  }
+
+  /* Texto arriba / Caja azul abajo */
+  .total-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;    /* 🔥 CENTRADO PERFECTO */
+    text-align: center !important;
+    gap: 8px;
+  }
+
+  .total-value {
+    padding: 6px 20px !important;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+}
+
+@media(max-width:1144px){
+    /* --- 1️⃣ MOVER EL TÍTULO “Ingresos” A LA DERECHA --- */
+  .section-title-inline {
+    margin-left: 35px !important;   /* 🔥 mueve el título un poco a la derecha */
+  }
+
+  /* --- 2️⃣ REDUCIR ESPACIO ENTRE FLECHAS Y TABS --- */
+  .ingresos-tabs {
+    gap: 1px !important;           /* 🔥 flechas más pegadas a los tabs */
+    padding-left: 1px !important;  /* 🔥 reduce margen izquierdo */
+    padding-right: 1px !important; /* 🔥 reduce margen derecho */
+  }
+
+  /* Flechas más pegadas al contenido */
+  .ingresos-tabs .arrow-left,
+  .ingresos-tabs .arrow-right {
+    padding: 0 8px !important;     /* 🔥 reduce espacio alrededor de flechas */
+    margin: 0 !important;
+  }
+
+  /* --- 3️⃣ Hacer los tabs aún MÁS COMPACTOS --- */
+  .ingresos-tabs .ant-tabs-nav-list {
+    gap: 4px !important;           /* 🔥 menos espacio entre los tabs */
+  }
+  /*------------------------------------------*/
+  .pfg-section {
+    display: flex !important;
+    flex-direction: column !important;     /* 🔥 Ponerlos en columnas */
+    align-items: flex-start !important;     /* 🔥 Alineación elegante */
+    gap: 8px !important;                    /* 🔥 Espaciado limpio */
+    width: 80% !important;                  /* 🔥 Más compacto y profesional */
+    margin: 0 auto !important;              /* 🔥 Centrado */
+  }
+
+  .pfg-section .pfg-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;                   /* 🔥 Buen espaciado entre etiqueta y valor */
+  }
+
+  /* Asegurar que el punto rojo quede centrado */
+  .pfg-indicator {
+    margin-left: 6px !important;
+    margin-right: 0 !important;
+  }
+
+/*------------------------------------------*/
+
+  /* ACC y NPL apilados, pero cada uno en una fila propia */
+  .negocios-metricas {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 17px !important;
+  }
+
+  /* Cada tarjeta (ACC / NPL) en modo GRID: 2 columnas */
+  .negocio-card {
+    display: grid !important;
+    grid-template-columns: auto 1fr;   /* ⬅ izquierda: Logrado + ACC; derecha: Desv/Forecast */
+    grid-auto-rows: auto;
+    column-gap: 1px;
+    align-items: flex-start;
+    width: 100% !important;
+  }
+
+  /* 1ª columna, fila 1: "Logrado" */
+  .negocio-header {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0px !important;
+    margin-top: 10px;
+  }
+
+  /* 1ª columna, fila 2: "ACC:  [$000000]" */
+  .negocio-label {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex !important;
+    flex-direction: row !important;      /* ACC:  [caja] en línea */
+    align-items: center !important;
+    gap: 1px !important;
+  }
+
+  .negocio-value {
+    min-width: 130px !important;
+    text-align: center !important;
+    
+  }
+
+  /* 2ª columna (ocupa ambas filas): Desviación + Forecast */
+  .negocio-footer {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: flex-start;
+  }
+
+  /* Dentro del footer, las dos cajas una al lado de la otra */
+  .desv-forecast-row {
+    position: static !important;
+    left: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 0.5px !important;
+    width: auto !important;
+  }
+
+  /*---------------------------*/
+
+  /*------------Gastos-------------*/
+
+ 
+  /* Contenedor principal de tabs */
+  .gastos-tabs {
+    gap: 4px !important;
+  }
+
+  /* Cuerpo interno de Ant Design */
+  .gastos-tabs-inner .ant-tabs-nav-list {
+    gap: 6px !important;        /* 🔥 distancia REAL entre Mes y Mes */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Cada tab individual */
+  .gastos-tabs-inner .ant-tabs-tab {
+    margin: 0 !important;       /* 🔥 elimina separación extra */
+    padding: 4px 10px !important;  /* 🔥 más pequeños */
+    min-width: auto !important;
+  }
+
+  /* Botón activo */
+  .gastos-tabs-inner .ant-tabs-tab-active {
+    padding: 4px 10px !important;
+  }
+
+  /* La cinta interna de Ant Design NO debe ocupar ancho */
+  .gastos-tabs-inner .ant-tabs-nav-wrap {
+    width: auto !important;
+  }
+
+  /* Flechas más pegadas */
+  .gastos-tabs .arrow-left,
+  .gastos-tabs .arrow-right {
+    padding: 0 19px !important;
+  }
+
+  .gastos-top-row {
+    gap: 1px !important;              /* 🔥 Antes 24–40px → ahora mucho más compacto */
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* Ajuste individual de cada tarjeta para que no ocupen extra */
+
+
+  .gasto-card {
+    margin: 0 !important;
+    padding: 4px 6px !important;       /* Reduce padding interno */
+  }
+
+  /* Caja azul más compacta */
+  .gasto-value {
+    min-width: 120px !important;       /* Antes hasta 190px */
+    padding: 4px 8px !important;
+    font-size: 20px !important;
+  }
+
+  /* La tarjeta de desviación, igual de compacta */
+  .gasto-card.desviacion .gasto-value {
+    min-width: 90px !important;
+    font-size: 20px !important;
+  }
+
+  /* Centrar mejor el circulito VS */
+  .vs-badge {
+    margin: 0 4px !important;
+    top: 12px !important;
+   
+  }
+
+   .section-container .linea-naranja-inferior {
+    width: 93% !important;     /* ahora sí se aplicará */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+
+}
+
+/* ============================================================
+   📱 RESPONSIVE TABLET (1024px – 768px) — BLOQUE LIMPIO
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  /* ----------------------------------------------------------
+     1) HEADER
+  ---------------------------------------------------------- */
+  .tablero-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .header-banner {
+    min-width: 100%;
+    height: auto;
+    padding: 12px 20px;
+  }
+
+  .header-date {
+    padding-left: 4px;
+  }
+
+  /* ----------------------------------------------------------
+     2) EBITDA → 2 columnas
+  ---------------------------------------------------------- */
+  .ebitda-grid-maqueta {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .ebitda-general {
+    grid-row: auto !important;
+    margin-top: 0 !important;
+  }
+
+  .pais-maqueta {
+    max-width: 100% !important;
+  }
+
+  /* ----------------------------------------------------------
+     3) INGRESOS / GASTOS — APILAR SECCIONES
+  ---------------------------------------------------------- */
+  .tablero-financiero .ant-row {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .tablero-financiero .ant-row > .ant-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .tablero-financiero .ant-row > .ant-col + .ant-col {
+    margin-top: 32px !important;
+  }
+
+  /* Contenedor donde están título + tabs */
+  .negocios-section {
+    position: relative;
+  }
+
+  /* Alinear los tabs a la derecha */
+  .negocios-tabs {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Evita que Ant Design expanda el ancho a 100% */
+  .negocios-tabs .ant-tabs-nav,
+  .negocios-tabs .ant-tabs-nav-wrap,
+  .negocios-tabs .ant-tabs-nav-list {
+    width: auto !important;
+  }
+
+  .negocios-tabs .ant-tabs-nav-list {
+    display: flex !important;
+    gap: 13px !important;
+    justify-content: flex-end !important;
+  }
+
+  /* Hacer que el título "Negocios" no se mueva */
+  .negocios-title {
+    margin-bottom: 32px !important; /* espacio debajo para que no colisionen */
+  }
+
+   /* Cada tarjeta ACC/NPL en columna */
+  .negocio-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  /* Logrado arriba */
+  .negocio-header {
+    order: 1 !important;
+  }
+
+  /* ACC: [$00000] en una sola línea */
+  .negocio-label {
+    order: 2 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  /* Caja azul ACC/NPL más compacta */
+  .negocio-value {
+    min-width: 130px !important;
+  }
+
+  /* Desv + Forecast DEBAJO, no a la derecha */
+  .negocio-footer {
+    order: 3 !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Caja inferior: dos columnas lado a lado */
+  .desv-forecast-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 18px !important;
+    width: 100% !important;
+    position: static !important;  /* 🔥 elimina desplazamientos */
+    left: 0 !important;
+  }
+
+  /* Alinear textos */
+  .desv-box, .forecast-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+
+  /* Contenedor de ambas tarjetas ACC + NPL */
+  .negocios-metricas {
+    display: grid !important;
+    grid-template-columns: repeat(2, auto) !important;  /* columnas del tamaño de su contenido */
+    justify-content: center !important;                 /* 🔥 centrado horizontal REAL */
+    column-gap: 60px !important;                        /* espacio entre ACC y NPL */
+    width: 100% !important;
+  }
+
+  .negocio-card {
+    width: auto !important;       /* evita que se estiren */
+  }
+
+  /* ----------------------------------------------------------
+     4) TABS DE INGRESOS — FLECHAS + ESPACIADO
+  ---------------------------------------------------------- */
+  .ingresos-tabs.ingresos-tabs-compacto {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  /* Evitar que el bloque de tabs se estire a 100% */
+  .ingresos-tabs.ingresos-tabs-compacto .ant-tabs-nav,
+  .ingresos-tabs.ingresos-tabs-compacto .ant-tabs-nav-wrap {
+    width: auto !important;
+  }
+
+  .ingresos-tabs.ingresos-tabs-compacto .ant-tabs-nav-list {
+    width: auto !important;
+    gap: 28px !important;          /* Espaciado real entre tabs */
+    justify-content: center !important;
+  }
+
+  /* Flechas más cerca */
+  .ingresos-tabs.ingresos-tabs-compacto .arrow-left,
+  .ingresos-tabs.ingresos-tabs-compacto .arrow-right {
+    padding: 0 34px !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+  }
+
+  /* ----------------------------------------------------------
+     5) PFG + PFG FORECASTA centrados
+  ---------------------------------------------------------- */
+  .pfg-section {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 22px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .pfg-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+  }
+
+  /* ----------------------------------------------------------
+     6) LÍNEA NARANJA CENTRADA
+  ---------------------------------------------------------- */
+  .linea-naranja-ingresos {
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .section-container .linea-naranja-inferior {
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 1️⃣ Aumentar GAP entre los tabs de Gastos */
+  .gastos-tabs {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;                  /* 🔥 Más separación total */
+    margin-bottom: 12px !important;
+  }
+
+  .gastos-tabs .ant-tabs-nav,
+  .gastos-tabs .ant-tabs-nav-wrap {
+    width: auto !important;                /* Previene estiramiento */
+  }
+
+  .gastos-tabs .ant-tabs-nav-list {
+    display: flex !important;
+    gap: 26px !important;                  /* 🔥 Espacio real entre tabs */
+    justify-content: center !important;
+  }
+
+  /* Flechas más cerca del grupo */
+  .gastos-tabs .arrow-left,
+  .gastos-tabs .arrow-right {
+    padding: 0 39px !important;
+    margin: 0 !important;
+  }
+
+
+  /* 2️⃣ Agregar GAP entre:
+       Gasto Ejecutado — VS — Presupuesto — Desviación */
+  .gastos-top-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 28px !important;                   /* 🔥 Espacio entre las 4 cajas */
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Asegurar que cada tarjeta no se estire */
+  .gasto-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  
+  /* Vencer a .tablero-financiero .ant-row */
+  .tablero-financiero .gastos-totales-row.ant-row {
+    display: flex !important;
+    flex-direction: row !important;     /* 🔥 cambia columna → fila */
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    gap: 1px !important;
+  }
+
+ .gastos-totales-row .total-content {
+    text-align: center !important;            /* 🔥 CENTRA el texto */
+    align-items: center !important;           /* 🔥 CENTRA flex internamente */
+    justify-content: center !important;
+}
+
+.gastos-totales-row .total-label {
+    width: 100% !important;
+    text-align: center !important;            /* 🔥 evita align-left heredado */
+    white-space: nowrap !important;           /* sin salto de línea */
+    display: block !important;                /* para centrar correctamente */
+    margin: 0 auto !important;
+}
+
+
+  
+
+
+}
+
+
+/* ============================================================
+   📱 RESPONSIVE MOVIL (≤ 767px)
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* HEADER */
+  .tablero-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-banner {
+    min-width: 100%;
+    border-radius: 0;
+    align-items: center;
+  }
+
+  .header-date {
+    justify-content: center;
+  }
+
+/* GRID en 2 columnas */
+  .ebitda-grid-maqueta {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 22px !important;
+    padding: 0 20px !important;
+  }
+
+  /* GENERAL sigue arriba y centrado */
+  .ebitda-general {
+    grid-column: 1 / 3 !important;
+    width: 80% !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  /* Tarjetas país: altura automática */
+  .pais-maqueta {
+    height: auto !important;
+    padding: 12px !important;
+  }
+
+  /* Ajustes internos compactos */
+  .fila-horizontal {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+  }
+
+  .desviacion-box-lateral {
+    min-width: 60px !important;
+    min-height: 60px !important;
+  }
+
+  .forecast, .bloque-superior {
+    min-height: unset !important;
+  }
+
+
+
+  /* Tabs tipo slider */
+  .ant-tabs-nav-list {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 10px;
+  }
+
+  .ant-tabs-tab {
+    flex-shrink: 0;
+  }
+
+  /* Ingresos → PFG centrado */
+  .pfg-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  /* Negocios */
+  .negocios-metricas {
+    flex-direction: column !important;
+    gap: 18px;
+  }
+
+  .desv-forecast-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    left: 0 !important;
+  }
+
+  .negocio-forecast,
+  .negocio-desviacion {
+    min-width: 100px !important;
+  }
+
+  /* Gastos */
+  .gastos-top-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gasto-card {
+    width: 100%;
+  }
+
+  .total-card {
+    width: 100%;
+  }
+
+  .detalle-card {
+    width: 100%;
+  }
+
+  .detalle-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detalle-value {
+    width: 100%;
+    text-align: center;
+  }
+
+  /*---------------Ingresos------------*/
+
+  .linea-naranja-ingresos {
+    width: 85% !important;
+  }
+
+}
+
+/* ============================================================
+   📱 RESPONSIVE — 600px a 510px
+   2 columnas + tarjetas más rectangulares
+   ============================================================ */
+@media (max-width: 600px) and (min-width: 510px) {
+
+  /* Grid en 2 columnas compactas */
+  .ebitda-grid-maqueta {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+    padding: 0 16px !important;
+  }
+
+  /* General centrado y más angosto */
+  .ebitda-general {
+    grid-column: 1 / 3 !important;
+    width: 85% !important;
+    margin: 0 auto 16px auto !important;
+  }
+
+  /* Tarjetas país: más rectangulares */
+  .pais-maqueta {
+    height: 150px !important;      /* 🔥 mucho más baja */
+    padding: 10px !important;
+    gap: 6px !important;
+    transform: scale(0.98);   /* ligera compactación suave */
+
+  }
+
+  /* Fila interna más compacta */
+  .fila-horizontal {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* Caja azul lateral más chica */
+  .desviacion-box-lateral {
+    min-width: 55px !important;
+    min-height: 55px !important;
+    padding: 4px !important;
+  }
+
+  /* Ajustes del bloque superior */
+  .bloque-superior {
+    min-height: 40px !important;
+    padding: 6px !important;
+  }
+
+  /* Forecast más delgado */
+  .forecast {
+    min-height: 32px !important;
+    padding: 4px 6px !important;
+  }
+
+  /* Reducir tipografías ligeramente */
+  .pais-maqueta .label {
+    font-size: 8px !important;
+  }
+
+  .pais-maqueta .value {
+    font-size: 11px !important;
+  }
+
+  .desviacion-box-lateral .value {
+    font-size: 11px !important;
+  }
+
+   /*---------------Ingresos------------*/
+
+  .linea-naranja-ingresos {
+    width: 90% !important;
+  }
+}
+
+/* ============================================================
+   📱 RESPONSIVE MÓVIL PEQUEÑO (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .tablero-financiero {
+    padding: 8px;
+  }
+
+  .tablero-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .header-banner {
+    min-width: 100%;
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 16px;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-banner h1 {
+    font-size: 18px;
+  }
+
+  .header-banner p {
+    font-size: 12px;
+  }
+
+  .header-date {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .update-label-block {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* EBITDA Grid */
+  .ebitda-grid-maqueta {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 0 8px !important;
+  }
+
+  .ebitda-general {
+    grid-column: 1 !important;
+    width: 100% !important;
+  }
+
+  .pais-maqueta {
+    height: auto !important;
+    padding: 10px !important;
+  }
+
+  /* Secciones */
+  .section-title {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Cards */
+  .ebitda-card,
+  .pais-card,
+  .gasto-card,
+  .total-card,
+  .detalle-card {
+    width: 100% !important;
+    margin-bottom: 12px;
+  }
+
+  /* Tabs */
+  .ant-tabs-nav-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ant-tabs-tab {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* Negocios */
+  .negocios-metricas {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .negocio-card {
+    width: 100% !important;
+  }
+
+  /* Gastos */
+  .gastos-top-row,
+  .gastos-totales-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  /* PFG */
+  .pfg-section {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .pfg-card {
+    width: 100% !important;
+  }
+
+  /* Ingresos */
+  .ingresos-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .linea-naranja-ingresos {
+    width: 100% !important;
+  }
+
+  /* Valores más pequeños */
+  .ebitda-value,
+  .pais-value-large {
+    font-size: 14px !important;
+  }
+
+  .desv-value {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================================
+   📱 TABLET (481px - 768px)
+   ============================================================ */
+@media (min-width: 481px) and (max-width: 768px) {
+  .tablero-financiero {
+    padding: 12px;
+  }
+
+  .header-banner {
+    min-width: auto;
+    width: auto;
+    padding: 10px 30px;
+    border-radius: 0 30px 30px 0;
+  }
+
+  .header-banner h1 {
+    font-size: 22px;
+  }
+
+  /* EBITDA Grid 2 columnas */
+  .ebitda-grid-maqueta {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .ebitda-general {
+    grid-column: 1 / 3 !important;
+  }
+
+  /* Negocios 2 columnas */
+  .negocios-metricas {
+    flex-wrap: wrap !important;
+  }
+
+  .negocio-card {
+    flex: 1 1 45% !important;
+    min-width: 200px !important;
+  }
+
+  /* Gastos 2 columnas */
+  .gastos-top-row {
+    flex-wrap: wrap !important;
+  }
+
+  .gasto-card {
+    flex: 1 1 45% !important;
+  }
+}

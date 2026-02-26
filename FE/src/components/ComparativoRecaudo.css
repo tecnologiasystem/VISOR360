@@ -1,0 +1,685 @@
+/* ========================================
+   COMPARATIVO RECAUDO - Componente Expandible
+   Diseño profesional con animaciones y UI/UX premium
+   ======================================== */
+
+/* === CONTENEDOR PRINCIPAL === */
+.comparativo-container {
+  margin-top: 40px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.comparativo-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #003087;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comparativo-title-icon {
+  font-size: 24px;
+}
+
+.comparativo-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dia-habil-badge {
+  background: linear-gradient(135deg, #003087, #0050C8);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 48, 135, 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(0, 48, 135, 0); }
+}
+
+/* === SELECTOR DE MES A COMPARAR === */
+.comparativo-selector {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.selector-label {
+  font-weight: 600;
+  color: #003087;
+  font-size: 14px;
+}
+
+/* === TABLA EXPANDIBLE === */
+.comparativo-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* === FILA DE SUBCAMPAÑA === */
+.subcampana-item {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  border: 2px solid #E0E7FF;
+}
+
+.subcampana-item:hover {
+  border-color: #003087;
+  box-shadow: 0 8px 25px rgba(0, 48, 135, 0.15);
+  transform: translateY(-2px);
+}
+
+.subcampana-item.expanded {
+  border-color: #003087;
+  box-shadow: 0 12px 40px rgba(0, 48, 135, 0.2);
+}
+
+/* === HEADER DE SUBCAMPAÑA (clickeable) === */
+.subcampana-header {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) repeat(3, minmax(120px, 1fr)) 50px;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #FAFBFF 0%, #F0F4FF 100%);
+  transition: all 0.3s ease;
+  gap: 16px;
+}
+
+.subcampana-header:hover {
+  background: linear-gradient(135deg, #F0F4FF 0%, #E0E7FF 100%);
+}
+
+.subcampana-item.expanded .subcampana-header {
+  background: linear-gradient(135deg, #003087 0%, #0050C8 100%);
+}
+
+.subcampana-item.expanded .subcampana-nombre,
+.subcampana-item.expanded .header-value,
+.subcampana-item.expanded .header-label {
+  color: white !important;
+}
+
+/* === NOMBRE DE SUBCAMPAÑA === */
+.subcampana-nombre {
+  font-weight: 700;
+  font-size: 16px;
+  color: #003087;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.subcampana-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #003087, #0050C8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.subcampana-item.expanded .subcampana-icon {
+  background: white;
+  color: #003087;
+}
+
+/* === VALORES EN HEADER === */
+.header-cell {
+  text-align: center;
+}
+
+.header-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.header-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #003087;
+  transition: color 0.3s ease;
+}
+
+.header-value.positive {
+  color: #10B981;
+}
+
+.header-value.negative {
+  color: #EF4444;
+}
+
+.subcampana-item.expanded .header-value.positive {
+  color: #6EE7B7 !important;
+}
+
+.subcampana-item.expanded .header-value.negative {
+  color: #FCA5A5 !important;
+}
+
+/* === ICONO EXPANDIR === */
+.expand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E0E7FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #003087;
+  font-size: 18px;
+}
+
+.subcampana-item.expanded .expand-icon {
+  background: white;
+  transform: rotate(180deg);
+}
+
+/* === CONTENIDO EXPANDIBLE === */
+.subcampana-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              padding 0.3s ease;
+  opacity: 0;
+  padding: 0 20px;
+}
+
+.subcampana-item.expanded .subcampana-content {
+  max-height: 800px;
+  opacity: 1;
+  padding: 24px 20px;
+}
+
+/* === GRID DE COMPARACIÓN === */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+/* === CARD DE MES === */
+.month-card {
+  background: linear-gradient(135deg, #FAFBFF 0%, #F0F4FF 100%);
+  border-radius: 16px;
+  padding: 20px;
+  border: 2px solid #E0E7FF;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.month-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #003087, #0050C8);
+}
+
+.month-card.comparar::before {
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+}
+
+.month-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 48, 135, 0.15);
+}
+
+.month-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.month-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #003087;
+}
+
+.month-card.comparar .month-name {
+  color: #B45309;
+}
+
+.month-date-badge {
+  background: #E0E7FF;
+  color: #003087;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.month-card.comparar .month-date-badge {
+  background: #FEF3C7;
+  color: #B45309;
+}
+
+.month-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #003087;
+  margin-bottom: 8px;
+}
+
+.month-card.comparar .month-value {
+  color: #B45309;
+}
+
+.month-detail {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* === INDICADOR DE VARIACIÓN === */
+.variation-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 2px solid #BBF7D0;
+  animation: fadeInUp 0.5s ease;
+}
+
+.variation-indicator.negative {
+  background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  border-color: #FECACA;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.variation-label {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.variation-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.variation-indicator.negative .variation-value {
+  color: #EF4444;
+}
+
+.variation-arrow {
+  font-size: 28px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.variation-absolute {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+/* === GRÁFICO DE COMPARACIÓN === */
+.comparison-chart {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  border: 2px solid #E0E7FF;
+}
+
+.chart-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-dot.actual {
+  background: linear-gradient(135deg, #003087, #0050C8);
+}
+
+.legend-dot.comparar {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+}
+
+/* === BARRAS DE PROGRESO COMPARATIVAS === */
+.progress-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progress-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.progress-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-bar-wrapper {
+  height: 24px;
+  background: #F1F5F9;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  min-width: fit-content;
+}
+
+.progress-bar.actual {
+  background: linear-gradient(90deg, #003087, #0050C8);
+}
+
+.progress-bar.comparar {
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+}
+
+/* === LOADING STATE === */
+.comparison-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #64748b;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #E0E7FF;
+  border-top-color: #003087;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .subcampana-header {
+    grid-template-columns: minmax(120px, 1fr) repeat(2, minmax(100px, 1fr)) 40px;
+  }
+  
+  .header-cell:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparativo-container {
+    padding: 0 8px;
+  }
+  
+  .comparativo-title {
+    font-size: 20px;
+  }
+  
+  .subcampana-header {
+    grid-template-columns: 1fr auto;
+    padding: 14px 16px;
+  }
+  
+  .header-cell {
+    display: none;
+  }
+  
+  .header-cell:first-child,
+  .expand-icon-wrapper {
+    display: flex;
+  }
+  
+  .subcampana-nombre {
+    font-size: 14px;
+  }
+  
+  .subcampana-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .month-value {
+    font-size: 24px;
+  }
+  
+  .variation-value {
+    font-size: 28px;
+  }
+  
+  .subcampana-item.expanded .subcampana-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparativo-title {
+    font-size: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .dia-habil-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+  
+  .month-card {
+    padding: 16px;
+  }
+  
+  .month-name {
+    font-size: 16px;
+  }
+  
+  .month-value {
+    font-size: 20px;
+  }
+  
+  .variation-value {
+    font-size: 24px;
+  }
+  
+  .progress-bar {
+    height: 20px;
+    font-size: 10px;
+  }
+}
+
+/* === ANIMACIONES DE ENTRADA === */
+.subcampana-item {
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.subcampana-item:nth-child(1) { animation-delay: 0.1s; }
+.subcampana-item:nth-child(2) { animation-delay: 0.15s; }
+.subcampana-item:nth-child(3) { animation-delay: 0.2s; }
+.subcampana-item:nth-child(4) { animation-delay: 0.25s; }
+.subcampana-item:nth-child(5) { animation-delay: 0.3s; }
+.subcampana-item:nth-child(6) { animation-delay: 0.35s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === TOOLTIP === */
+.tooltip-wrapper {
+  position: relative;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #1E293B;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1E293B;
+}
+
+/* === EMPTY STATE === */
+.comparativo-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.empty-subtext {
+  font-size: 14px;
+  color: #94A3B8;
+}

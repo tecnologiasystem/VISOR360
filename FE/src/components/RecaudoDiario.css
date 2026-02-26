@@ -1,0 +1,174 @@
+/* Wrapper del scroll de recaudos diarios */
+.recaudo-diario-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+}
+
+/* Track scrolleable */
+.recaudo-diario-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  
+  /* Ocultar scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.recaudo-diario-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card de cada día */
+.recaudo-dia-card {
+  min-width: 160px;
+  max-width: 160px;
+  background: white;
+  border: 2px solid #E0E7FF;
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.recaudo-dia-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Monto del día */
+.dia-monto {
+  font-size: 16px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Label: Día X · DD/MM */
+.dia-label {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: 500;
+}
+
+/* Botones de scroll */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #003087;
+  background: white;
+  color: #003087;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.scroll-btn:hover {
+  background: #003087;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .recaudo-dia-card {
+    min-width: 140px;
+    max-width: 140px;
+    padding: 14px 10px;
+  }
+  
+  .dia-monto {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recaudo-diario-wrapper {
+    padding: 0 30px;
+  }
+  
+  .recaudo-dia-card {
+    min-width: 120px;
+    max-width: 120px;
+    padding: 12px 8px;
+  }
+  
+  .dia-monto {
+    font-size: 14px;
+  }
+  
+  .dia-label {
+    font-size: 11px;
+  }
+  
+  .scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recaudo-diario-wrapper {
+    padding: 0 26px;
+  }
+  
+  .recaudo-dia-card {
+    min-width: 100px;
+    max-width: 100px;
+    padding: 10px 6px;
+  }
+  
+  .dia-monto {
+    font-size: 13px;
+  }
+  
+  .dia-label {
+    font-size: 10px;
+  }
+  
+  .scroll-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+/* Landscape */
+@media (max-width: 896px) and (max-height: 500px) and (orientation: landscape) {
+  .recaudo-diario-wrapper {
+    margin: 12px 0;
+  }
+  
+  .recaudo-dia-card {
+    min-width: 110px;
+    max-width: 110px;
+    padding: 10px 8px;
+  }
+}

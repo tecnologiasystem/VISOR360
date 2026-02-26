@@ -1,0 +1,428 @@
+/* ===================================================================
+   ESTILOS GLOBALES RESPONSIVE PARA VISOR360
+   Asegura que toda la aplicación sea mobile-friendly
+   =================================================================== */
+
+/* Reset y Base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevenir zoom en inputs en iOS */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Suavizar scroll en móviles */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevenir overflow horizontal en toda la app */
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ===================================================================
+   ESTILOS RESPONSIVE PARA ANT DESIGN COMPONENTS
+   =================================================================== */
+
+/* Tablas responsive */
+@media (max-width: 768px) {
+  .ant-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .ant-table {
+    min-width: 600px;
+  }
+  
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+  
+  /* Botones más pequeños en tablas */
+  .ant-table .ant-btn {
+    font-size: 11px;
+    padding: 2px 6px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 6px 3px;
+    font-size: 11px;
+  }
+}
+
+/* Modales responsive */
+@media (max-width: 768px) {
+  .ant-modal {
+    max-width: calc(100vw - 32px);
+    margin: 16px auto;
+  }
+  
+  .ant-modal-body {
+    padding: 16px;
+  }
+  
+  .ant-modal-header {
+    padding: 12px 16px;
+  }
+  
+  .ant-modal-footer {
+    padding: 10px 16px;
+  }
+}
+
+/* Forms responsive */
+@media (max-width: 768px) {
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  
+  .ant-form-item-label {
+    padding-bottom: 4px;
+  }
+  
+  .ant-input,
+  .ant-input-number,
+  .ant-picker,
+  .ant-select-selector {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-input,
+  .ant-input-number,
+  .ant-picker,
+  .ant-select-selector {
+    font-size: 13px;
+  }
+}
+
+/* Select y Dropdown responsive */
+@media (max-width: 768px) {
+  .ant-select-dropdown {
+    max-width: calc(100vw - 32px);
+  }
+  
+  .ant-select-item {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+/* DatePicker responsive */
+@media (max-width: 768px) {
+  .ant-picker-dropdown {
+    max-width: calc(100vw - 32px);
+  }
+  
+  .ant-picker-panel {
+    width: 280px;
+  }
+}
+
+/* Buttons responsive */
+@media (max-width: 768px) {
+  .ant-btn {
+    font-size: 13px;
+    padding: 6px 12px;
+    height: auto;
+  }
+  
+  .ant-btn-lg {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .ant-btn-sm {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* Cards responsive */
+@media (max-width: 768px) {
+  .ant-card {
+    margin-bottom: 12px;
+  }
+  
+  .ant-card-head {
+    padding: 12px 16px;
+    min-height: auto;
+  }
+  
+  .ant-card-head-title {
+    font-size: 15px;
+  }
+  
+  .ant-card-body {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-card-head {
+    padding: 10px 12px;
+  }
+  
+  .ant-card-head-title {
+    font-size: 14px;
+  }
+  
+  .ant-card-body {
+    padding: 12px;
+  }
+}
+
+/* Space responsive */
+@media (max-width: 768px) {
+  .ant-space {
+    gap: 8px !important;
+  }
+  
+  .ant-space-item {
+    margin-right: 8px !important;
+  }
+}
+
+/* Tabs responsive */
+@media (max-width: 768px) {
+  .ant-tabs-nav {
+    margin-bottom: 12px;
+  }
+  
+  .ant-tabs-tab {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+/* ===================================================================
+   UTILIDADES RESPONSIVE GENERALES
+   =================================================================== */
+
+/* Ocultar/mostrar según breakpoint */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .show-mobile {
+    display: block;
+  }
+}
+
+/* Stacks verticales en móvil */
+.responsive-stack {
+  display: flex;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .responsive-stack {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Grids responsive automáticos */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Scroll horizontal seguro para móviles */
+.scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 3px;
+}
+
+/* ===================================================================
+   MEJORAS DE TOUCH PARA MÓVILES
+   =================================================================== */
+
+/* Aumentar área de toque para botones pequeños */
+@media (max-width: 768px) {
+  button,
+  a,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Deshabilitar efectos hover en touch devices */
+@media (hover: none) {
+  .hover\:scale:hover,
+  .hover\:shadow:hover,
+  *:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+}
+
+/* ===================================================================
+   LANDSCAPE ORIENTATION SUPPORT
+   =================================================================== */
+
+/* Móvil landscape - reducir espaciado vertical */
+@media (max-width: 896px) and (max-height: 500px) and (orientation: landscape) {
+  body {
+    font-size: 14px;
+  }
+  
+  .ant-card {
+    margin-bottom: 8px;
+  }
+  
+  .ant-card-head {
+    padding: 8px 12px;
+  }
+  
+  .ant-card-body {
+    padding: 12px;
+  }
+  
+  .ant-form-item {
+    margin-bottom: 12px;
+  }
+}
+
+/* Tablet landscape - aprovechar espacio horizontal */
+@media (min-width: 768px) and (max-width: 1366px) and (max-height: 800px) and (orientation: landscape) {
+  .responsive-stack {
+    flex-direction: row;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* ===================================================================
+   ANIMACIONES OPTIMIZADAS PARA MÓVILES
+   =================================================================== */
+
+/* Reducir animaciones en móviles para mejor performance */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+/* Deshabilitar animaciones si el usuario prefiere reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================================
+   TYPOGRAPHY RESPONSIVE
+   =================================================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  h4 {
+    font-size: 1.1rem;
+  }
+  
+  h5 {
+    font-size: 1rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  p {
+    font-size: 0.85rem;
+  }
+}

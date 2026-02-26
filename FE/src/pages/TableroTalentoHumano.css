@@ -1,0 +1,2006 @@
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   MODAL EN CONSTRUCCIÓN
+   ============================================ */
+.modal-construccion-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-construccion {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 50px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-construccion-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 36px;
+  color: white;
+}
+
+.modal-construccion h2 {
+  color: #1E3A8A;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.modal-construccion p {
+  color: #64748B;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.modal-construccion-btn {
+  background: linear-gradient(135deg, #1E3A8A 0%, #003087 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-construccion-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+}
+
+.rh-board {
+  padding: 1px;
+  min-height: 100vh;
+}
+
+/* === HEADER FINAL === */
+.rh-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* Agrupa el bloque azul + el texto */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* controla el espacio entre el azul y el texto */
+  flex-wrap: wrap;
+}
+
+/* Bloque azul solo para el título/subtítulo */
+.header-blue {
+  background-color: #0023a0;
+  color: white;
+  /* cero padding vertical, solo horizontal */
+  padding-block: 0;
+  /* antes 10px/20px */
+  padding-inline: 24px;
+  /* ajusta si quieres más/menos ancho */
+  display: inline-flex;
+  /* permite centrar verticalmente el contenido */
+  flex-direction: column;
+  justify-content: center;
+  /* centra el texto en el alto disponible */
+  border-radius: 0 28px 28px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  line-height: 1;
+  /* compacto */
+  font-family: 'MontserratLocal', sans-serif;
+}
+
+
+.board-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 2px;
+}
+
+.board-subtitle {
+  font-size: 18px;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+.header-blue .board-title {
+  margin-top: 5px;
+  /* importante */
+  line-height: 1;
+  /* no cambia el tamaño de letra */
+}
+
+.header-blue .board-subtitle {
+  margin-bottom: 7px;
+  /* importante */
+  line-height: 1.05;
+  /* un pelín más alto para legibilidad */
+}
+
+/* Asegura que el texto de actualización quede pegado al azul */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* espacio entre el azul y el texto a la derecha */
+}
+
+/* Texto de actualización (a la derecha, pegado al azul) */
+.header-update {
+  display: flex;
+  flex-direction: column;
+  /* 🔹 apila texto y fecha */
+  align-items: center;
+  /* 🔹 alinea ambos a la izquierda */
+  color: #0023a0;
+  font-family: 'MontserratLocal', sans-serif;
+  line-height: 1.1;
+}
+
+/* Texto superior */
+.update-label {
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fecha debajo (alineada al texto de arriba) */
+.update-date {
+  font-size: 21px;
+  font-weight: 500 !important;
+  color: #0023a0;
+  margin-top: 4px;
+  /* 🔹 pequeño espacio entre líneas */
+}
+
+/* Main Tabs */
+.main-tabs {
+  margin-bottom: 24px;
+}
+
+.main-tabs .ant-tabs-nav {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.main-tabs .ant-tabs-tab {
+  color: #003087;
+  font-weight: 500;
+}
+
+.main-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #003087;
+  font-weight: 700;
+}
+
+/* === Título "Rotación" === */
+
+.rotacion-header {
+  margin-left: 40px;
+  /* tu alineación */
+  margin-bottom: 8px;
+  /* respirito antes de los bloques */
+}
+
+.rotacion-title {
+  font-family: 'MontserratLocal', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin: 0;
+  /* elimina margen por defecto del h2 */
+  display: inline-block;
+  /* permite transformar solo el texto */
+  transform: translateY(58px);
+  /* 🔹 baja el texto sin empujar nada */
+}
+
+/* === Nueva estructura de Rotación Top === */
+.rotacion-top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.rotacion-item {
+  display: flex;
+  flex-direction: column;
+  /* 🔹 Apila verticalmente: título → select → número */
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  min-width: 150px;
+  text-align: center;
+  color: #0023a0;
+  font-family: 'MontserratLocal', sans-serif;
+  position: relative;
+}
+
+.rotacion-item h4 {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0023a0;
+  margin-bottom: 8px;
+}
+
+.rotacion-subtabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.subtab {
+  background-color: white;
+  border: 1.5px solid #0023a0;
+  color: #0023a0;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.subtab.active {
+  background-color: #0023a0;
+  color: white;
+}
+
+.rotacion-value {
+  font-size: 32px;
+  font-weight: 600;
+  border: 1.8px solid #ff8c00;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 1px 26px;
+  margin-top: 8px;
+}
+
+/* === Estilo personalizado para los Selects de la parte superior === */
+.rotacion-item .ant-select-selector {
+  background-color: white !important;
+  border: 1.5px solid #0023a0 !important;
+  border-radius: 2px !important;
+  color: #0023a0 !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  text-align: center;
+  height: 36px !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* Centrar verticalmente el texto */
+.rotacion-item .ant-select-selection-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #0023a0 !important;
+}
+
+/* Flecha ▼ azul */
+.rotacion-item .ant-select-arrow {
+  color: #0023a0 !important;
+  font-weight: 700;
+}
+
+/* Quitar el borde azul de foco */
+.rotacion-item .ant-select-focused .ant-select-selector,
+.rotacion-item .ant-select-selector:focus,
+.rotacion-item .ant-select-selector:hover {
+  border-color: #0023a0 !important;
+  box-shadow: none !important;
+}
+
+/* Menú desplegable */
+.ant-select-dropdown {
+  border: 1.5px solid #0023a0 !important;
+  border-radius: 4px !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 600 !important;
+  color: #0023a0 !important;
+}
+
+/* Items dentro del menú */
+.ant-select-item-option-content {
+  color: #0023a0 !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ant-select-item-option-selected {
+  background-color: #f0f4ff !important;
+  color: #0023a0 !important;
+}
+
+/* === Líneas divisoras verticales === */
+.rotacion-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: -16px;
+  width: 1px;
+  height: 45px;
+  background-color: #0023a0;
+  opacity: 0.6;
+}
+
+/* === Encabezado (título de cada bloque) === */
+.rotacion-item h4 {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0023a0;
+  margin-bottom: 8px;
+}
+
+/* === Select compacto y estilizado === */
+.rotacion-item .ant-select {
+  width: 120px !important;
+  /* 🔹 más estrecho */
+}
+
+/* Selector visual */
+.rotacion-item .ant-select-selector {
+  background-color: white !important;
+  border: 1.5px solid #0023a0 !important;
+  border-radius: 3px !important;
+  color: #0023a0 !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  text-align: center;
+  height: 34px !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* Centrar texto dentro del selector */
+.rotacion-item .ant-select-selection-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #0023a0 !important;
+}
+
+/* Flecha ▼ azul */
+.rotacion-item .ant-select-arrow {
+  color: #0023a0 !important;
+  font-weight: 700;
+}
+
+/* Sin bordes azules en hover o foco */
+.rotacion-item .ant-select-focused .ant-select-selector,
+.rotacion-item .ant-select-selector:focus,
+.rotacion-item .ant-select-selector:hover {
+  border-color: #0023a0 !important;
+  box-shadow: none !important;
+}
+
+/* Menú desplegable */
+.ant-select-dropdown {
+  border: 1.5px solid #0023a0 !important;
+  border-radius: 4px !important;
+  font-family: 'MontserratLocal', sans-serif !important;
+  font-weight: 600 !important;
+  color: #0023a0 !important;
+}
+
+/* Opciones del menú */
+.ant-select-item-option-content {
+  color: #0023a0 !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ant-select-item-option-selected {
+  background-color: #f0f4ff !important;
+  color: #0023a0 !important;
+}
+
+.rotacion-separator {
+  width: 95%;
+  height: 3px;
+  background-color: #ff8c00;
+  border-radius: 2px;
+  margin: 12px auto 24px auto;
+}
+
+/* === AUSENTISMO === */
+.ausentismo-container {
+  width: 100%;
+  margin-top: 32px;
+  color: #0023a0;
+  font-family: 'MontserratLocal', sans-serif;
+}
+
+.ausentismo-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0023a0;
+  margin-bottom: 12px;
+  margin-left: 37px;
+}
+
+/* División visual horizontal */
+.ausentismo-row {
+  align-items: flex-start;
+}
+
+/* === LADO IZQUIERDO DE AUSENTISMO === */
+
+.ausentismo-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 0;
+}
+
+/* Contenedor general: Tabs y Selects alineados horizontalmente */
+.ausentismo-header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Botones de Meses */
+.ausentismo-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  /* 🔹 para pantallas pequeñas */
+  gap: 12px;
+  width: 100%;
+  padding-right: 35px;
+}
+
+.ausentismo-tabs {
+  display: flex;
+  gap: 8px;
+  margin-left: 36px;
+  margin-bottom: 4px;
+}
+
+.ausentismo-tabs button {
+  background-color: #0023a0;
+  color: white;
+  border: none;
+  padding: 4px 26px;
+  border-radius: 1px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ausentismo-tabs button:hover {
+  background-color: #0039d1;
+}
+
+.ausentismo-tabs button.active {
+  background-color: #0023a0;
+  color: white;
+}
+
+/* === SELECTS (Áreas / Carteras) === */
+.ausentismo-selects {
+  display: flex;
+  gap: 12px;
+}
+
+/* Contenedor general del select */
+.ausentismo-select .ant-select-selector {
+  border: 2px solid #0023a0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: white !important;
+  height: 44px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px !important;
+}
+
+/* Texto dentro del select */
+.ausentismo-select .ant-select-selection-item {
+  color: #0023a0 !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-size: 16px !important;
+  text-align: center !important;
+}
+
+/* Icono del dropdown (flecha) */
+.ausentismo-select .ant-select-arrow {
+  color: #0023a0 !important;
+  font-size: 14px !important;
+}
+
+/* Hover / focus sin sombra azul ni borde extra */
+.ausentismo-select.ant-select-focused .ant-select-selector,
+.ausentismo-select:hover .ant-select-selector {
+  border-color: #0023a0 !important;
+  box-shadow: none !important;
+}
+
+/* Menú desplegable */
+.ant-select-dropdown {
+  border: 2px solid #0023a0 !important;
+  border-radius: 0 !important;
+}
+
+
+/* === Línea de tiempo tipo maqueta corregida === */
+.timeline-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e0f0ff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.timeline-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 10px;
+  padding: 20px 24px 32px;
+  position: relative;
+  width: 100%;
+}
+
+.timeline-nav {
+  background: none;
+  border: none;
+  color: #0023a0;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.timeline-nav:hover {
+  color: #ff8c00;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.timeline-track {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* 7 días iguales */
+  align-items: flex-end;
+  /* 🔹 todo alineado hacia abajo */
+  position: relative;
+  padding: 20px 24px 32px;
+  /* 🔹 deja espacio debajo para la línea */
+  overflow-x: hidden;
+  background-color: #eaf2ff;
+  border-radius: 10px;
+  --lr-gap: 5%;
+  /* margen izq/der del riel */
+  --seg: calc((100% - (2 * var(--lr-gap))) / 7);
+  /* ancho de 1 día (7) */
+}
+
+/* === LÍNEA NARANJA === */
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  bottom: 39px;
+  left: var(--lr-gap);
+  right: var(--lr-gap);
+  height: 3px;
+  background: #ff8c00;
+  z-index: 1;
+}
+
+/* === NUEVAS LÍNEAS VERTICALES ENTRE DÍAS === */
+.timeline-track::after {
+  content: "";
+  position: absolute;
+  bottom: 34px;
+  left: 5%;
+  right: 5%;
+  height: 28px;
+  /* 🔹 altura visible */
+  z-index: 2;
+  background-image: repeating-linear-gradient(to right,
+      transparent,
+      transparent calc((100% / 7) - 1px),
+      #ff8c00 calc((100% / 7) - 1px),
+      #ff8c00 calc(100% / 7));
+}
+
+/* === ELEMENTOS (DÍAS) === */
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  text-align: center;
+  color: #0023a0;
+  z-index: 2;
+}
+
+/* Día (Lun 01, Mar 02...) */
+.timeline-item .day {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 0px;
+  transform: translateY(-4px);
+}
+
+/* Número (000, NA, etc.) */
+.timeline-item .value {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+  /* 🔹 espacio justo sobre la línea */
+}
+
+/* --- Ajuste especial para el último elemento (Dom 07 / NA) --- */
+.timeline-item:last-child .day,
+.timeline-item:last-child .value {
+  text-align: center;
+}
+
+
+
+/* Estilos visuales del gráfico (línea naranja) */
+.ausentismo-timeline .recharts-line {
+  stroke: #ff8c00 !important;
+  stroke-width: 2.5px !important;
+}
+
+.ausentismo-timeline .recharts-dot {
+  fill: #ff8c00 !important;
+  r: 4;
+}
+
+/* Eliminar la cuadrícula gris */
+.ausentismo-timeline .recharts-cartesian-grid line {
+  display: none;
+}
+
+/* Eje X (fechas) */
+.ausentismo-timeline .recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #0023a0;
+}
+
+
+/* Línea de tiempo */
+.ausentismo-timeline {
+  background-color: #eaf2ff;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+/* Total */
+.ausentismo-total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -30px;
+}
+
+.total-label {
+  font-weight: 700;
+}
+
+.total-badge {
+  background: white;
+  border: 2px solid #ff8c00;
+  border-radius: 8px;
+  padding: 4px 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0023a0;
+}
+
+/* Lado derecho */
+.ausentismo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.right-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Línea final divisoria */
+.ausentismo-divider {
+  margin-top: 12px;
+  width: 100%;
+  height: 2px;
+  background-color: #003087;
+}
+
+.grafica-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grafica-wrapper .recharts-responsive-container {
+  width: 100% !important;
+}
+
+/* === EL COL DERECHO DEBE OCUPAR TODO EL ANCHO === */
+.ausentismo-right-col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* === BLOQUE INFERIOR: CAPACITY / CLIMA / TIEMPO === */
+.section-card {
+  background: #ffffff;
+  border: 2px solid #ff8c00;
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.section-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- TITULOS GENERALES --- */
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+/* === CAPACITY (versión maqueta final) === */
+.capacity-card {
+  border: 2px solid #ff8c00;
+  border-radius: 10px;
+  background: #fff;
+  padding: 20px 24px;
+  color: #0023a0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* --- HEADER --- */
+.capacity-header {
+  margin-bottom: 1px;
+}
+
+/* Fila superior: título, selects y fecha alineados */
+.capacity-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.capacity-title-row .card-title {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.capacity-header .card-title {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin-bottom: 4px;
+}
+
+/* Grupo de selects al lado derecho del título */
+.capacity-select-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.capacity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.capacity-select {
+  border: 2px solid #0023a0 !important;
+  color: #0023a0 !important;
+  font-weight: 700;
+  font-style: italic;
+  border-radius: 4px !important;
+  width: 85px;
+  height: 34px;
+  text-align: center;
+}
+
+.capacity-select .ant-select-selector {
+  border: none !important;
+  box-shadow: none !important;
+  text-align: center;
+}
+
+.capacity-date {
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* --- BLOQUE DE MÉTRICAS --- */
+.capacity-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 16px auto;
+  text-align: center;
+  width: 100%;
+}
+
+.capacity-icon {
+  color: #0023a0;
+  font-size: 40px;
+  margin-right: 8px;
+}
+
+.capacity-metrics {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  gap: 10px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.metric-label {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0023a0;
+  border: 2px solid #0023a0;
+  border-radius: 8px;
+  padding: 4px 16px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.metric-item.orange .metric-value {
+  border-color: #ff8c00;
+  color: #ff8c00;
+}
+
+/* === CAPACITY TABLE: Aprovechar el ancho completo === */
+.capacity-footer {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  color: #0023a0;
+  margin-top: 16px;
+}
+
+.footer-title {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin-bottom: 6px;
+}
+
+/* === TABLA CAPACITY: versión final alineada === */
+.capacity-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  margin-top: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* --- Encabezado --- */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0023a0;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  padding: 6px 8px;
+  border-radius: 6px 6px 0 0;
+}
+
+.table-header span {
+  flex: 1;
+  text-align: center;
+}
+
+/* --- Filas --- */
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 6px 8px;
+  background-color: #f9faff;
+  border-bottom: 1px solid #dde3f5;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background-color: #eef2ff;
+}
+
+.table-row span {
+  flex: 1;
+  color: #0023a0;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Proporciones por columna --- */
+.table-header span:first-child,
+.table-row span:first-child {
+  flex: 2.2;
+  text-align: left;
+}
+
+.table-header span:nth-child(2),
+.table-row span:nth-child(2) {
+  flex: 1.6;
+  text-align: center;
+}
+
+.table-header span:last-child,
+.table-row span:last-child {
+  flex: 0.6;
+  text-align: right;
+  padding-right: 8px;
+}
+
+
+/* === CLIMA LABORAL === */
+
+.clima-card {
+  padding: 20px;
+  text-align: center;
+  border-color: #ff8c00;
+}
+
+.clima-title {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin-bottom: 16px;
+}
+
+/* === TABS: Mes 1 / Mes 2 / Mes 3 === */
+.clima-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.clima-tab {
+  background-color: #0023a0;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  padding: 8px 20px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.clima-card {
+  padding: 24px;
+  text-align: center;
+  border-color: #ff8c00;
+}
+
+.clima-title {
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin-bottom: 20px;
+}
+
+/* === TABS === */
+.clima-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.clima-tab {
+  background-color: #0023a0;
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+/* === FILA DE MÉTRICAS === */
+.clima-values {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  /* Separación horizontal amplia */
+  width: 100%;
+}
+
+/* === LABEL ARRIBA === */
+.clima-label {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 700;
+  color: #0023a0;
+  margin-bottom: 6px;
+}
+
+/* === CAJA NUMÉRICA === */
+.clima-metric {
+  width: 165px;
+  height: 120px;
+  border: 3px solid;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clima-metric.real {
+  border-color: #0023a0;
+}
+
+.clima-metric.optimo {
+  border-color: #ff8c00;
+}
+
+/* === NÚMERO === */
+.clima-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0023a0;
+}
+
+
+/* === TIEMPO PROM. CONTRATACIÓN === */
+
+.tiempo-card {
+  padding: 24px;
+  text-align: center;
+  border-color: #ff8c00 !important;
+}
+
+/* Título */
+.tiempo-title {
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* Tabs Mes 1 / Mes 2 / Mes 3 */
+.tiempo-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.tiempo-tab {
+  background-color: #0023a0;
+  color: white;
+  font-weight: 700;
+  font-style: italic;
+  padding: 8px 22px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+}
+
+/* === Métricas en columnas: Asesores / Analistas / Especialistas === */
+
+.tiempo-metrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* 💥 Centra todo el bloque */
+  width: 100%;
+}
+
+.tiempo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 💥 Centra cada línea horizontal */
+  gap: 14px;               /* Espacio entre label / número / días */
+  margin: 7px 0;
+  width: 100%;
+}
+
+/* Label izquierda */
+.tiempo-label {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: #0023a0;
+  min-width: 130px;
+  text-align: right;
+}
+
+/* Caja del número */
+.tiempo-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 140px;
+  height: 65px;
+
+  border: 2px solid #ff8c00;
+  border-radius: 10px;
+
+  font-size: 34px;
+  font-weight: 700;
+  color: #0023a0;
+}
+
+/* Texto "Días" */
+.tiempo-unit {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+  color: #0023a0;
+}
+
+/* Responsive */
+@media (max-width: 1247px) {
+  .capacity-card {
+    padding: 12px;
+  }
+
+  .capacity-title-row {
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .capacity-select-group {
+    display: flex;
+    gap: 6px;
+  }
+
+  .capacity-date {
+    font-size: 13px;
+  }
+
+  /* --- Ajuste de los tres bloques (Real / Óptimo / Disponibilidad) --- */
+  .capacity-metrics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .metric-item {
+    flex: 0 0 auto;
+    text-align: center;
+  }
+
+  .metric-label {
+    font-size: 13px;
+  }
+
+  .metric-value {
+    font-size: 22px;
+    padding: 4px 10px;
+    min-width: 60px;
+    display: inline-block;
+  }
+
+  /* --- Ícono y espaciado --- */
+  .capacity-icon {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px 0;
+  }
+
+  /* --- Tabla más compacta --- */
+  .capacity-table {
+    font-size: 12px;
+  }
+
+  .capacity-table .table-header span,
+  .capacity-table .table-row span {
+    padding: 3px 0;
+  }
+
+  /*Clima laboral*/
+
+
+  .clima-metric {
+    width: 160px;
+    height: 120px;
+    border: 3px solid;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*Tiempo contratación*/
+
+  /* Caja del número */
+  .tiempo-value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 140px;
+    height: 65px;
+
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+
+    font-size: 34px;
+    font-weight: 700;
+    color: #0023a0;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+
+/* Ajuste responsivo del título "Rotación" */
+@media (max-width: 1200px) {
+  .rotacion-title {
+    transform: translateY(6px);
+    /* baja menos en pantallas medianas */
+    font-size: 20px;
+    /* texto ligeramente más compacto */
+  }
+
+  .ausentismo-selects {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* 🔹 Permite que los selects salten de línea */
+    gap: 8px;
+    /* 🔹 Espaciado entre cajas */
+    width: 100%;
+    margin-left: 32px;
+  }
+
+  .ausentismo-select {
+    width: 150px !important;
+    /* 🔹 Más angosto para que quepan en una fila */
+    height: 42px !important;
+  }
+
+  .clima-metric {
+    width: 145px;
+    height: 100px;
+    border: 3px solid;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+}
+
+@media (max-width: 1112px) {
+  .clima-metric {
+    width: 130px;
+    height: 95px;
+    border: 3px solid;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Caja del número */
+  .tiempo-row {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .tiempo-value {
+    min-width: 90px !important;  /* 🔥 Evita que se haga pequeña */
+    padding: 10px 20px !important;
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+
+  .tiempo-label {
+    text-align: right;
+    min-width: 110px;
+  }
+
+  .tiempo-unit {
+    min-width: 45px;
+    text-align: left;
+  }
+}
+
+/* === Ajustes responsive para tablets (1024px o menos) === */
+@media (max-width: 1024px) {
+  .ausentismo-topbar {
+    flex-direction: column;
+    /* 🔹 Pone los elementos uno debajo del otro */
+    align-items: flex-start;
+    /* 🔹 Alinea todo al inicio */
+    gap: 10px;
+    /* 🔹 Espacio más compacto entre filas */
+    margin-left: 0;
+    /* 🔹 Elimina el margen lateral */
+    width: 100%;
+  }
+
+  .ausentismo-tabs {
+    justify-content: flex-start;
+    margin-left: 32px;
+    /* 🔹 Pequeño margen izquierdo */
+  }
+
+  .ausentismo-selects {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* 🔹 Permite que los selects salten de línea */
+    gap: 8px;
+    /* 🔹 Espaciado entre cajas */
+    width: 100%;
+    margin-left: 32px;
+  }
+
+  .ausentismo-select {
+    width: 150px !important;
+    /* 🔹 Más angosto para que quepan en una fila */
+    height: 42px !important;
+  }
+
+  .ausentismo-select .ant-select-selector {
+    height: 42px !important;
+    justify-content: center;
+  }
+
+  .ausentismo-select .ant-select-selection-item {
+    font-size: 15px !important;
+  }
+
+  .section-card {
+    margin-bottom: 20px;
+  }
+
+  .clima-metrics {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .clima-metric-card {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .capacity-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: px;
+  }
+
+  /* Mantener los tres valores en una sola fila */
+  .capacity-metrics {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .metric-item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .metric-label {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .metric-value {
+    font-size: 18px;
+    padding: 3px 8px;
+    border-width: 1.2px;
+    min-width: 55px;
+    border-radius: 6px;
+  }
+
+  /* Compactar icono */
+  .capacity-icon {
+    margin-bottom: 4px;
+    font-size: 20px;
+  }
+
+  /* Ajustar título y selects */
+  .capacity-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .capacity-select-group {
+    display: flex;
+    gap: 6px;
+  }
+
+  .capacity-date {
+    font-size: 13px;
+    margin-left: 5px;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+
+  .rh-board {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: visible !important;
+    overflow-x: hidden;
+  }
+
+  /* Corrige tarjetas que estaban dentro de flex containers */
+  .section-bottom,
+  .ant-row {
+    flex-wrap: wrap !important;
+    overflow: visible !important;
+  }
+
+  /* Asegura que las tarjetas crezcan */
+  .section-card {
+    height: auto !important;
+  }
+
+  .table-row span,
+  .table-header span {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  /* Clima laboral*/
+
+  .clima-metrics-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .clima-value {
+    font-size: 32px;
+  }
+
+  .clima-metric {
+    width: 125px;
+    height: 90px;
+    border: 3px solid;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+
+@media (max-width: 992px) {
+  .rotacion-header {
+    margin-left: 24px;
+    /* ajusta alineación con margen menor */
+  }
+
+  .rotacion-title {
+    transform: translateY(4px);
+    /* baja aún menos */
+    font-size: 19px;
+  }
+
+  .rotacion-separator {
+    width: 92%;
+    height: 2.5px;
+  }
+
+  .ausentismo-right-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .grafica-wrapper {
+    width: 100% !important;
+  }
+
+  .grafica-wrapper .recharts-responsive-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .header-blue h1 {
+    padding: 2px 15px;
+    font-size: 20px;
+  }
+
+  .board-subtitle {
+    font-size: 13px;
+  }
+
+  .update-label {
+    font-size: 8;
+  }
+
+  .update-date {
+    font-size: 20px !important;
+  }
+
+  .tablero-talento-humano {
+    padding: 12px;
+  }
+
+  .tablero-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .metric-card,
+  .secondary-card,
+  .departamento-card {
+    margin-bottom: 16px;
+    min-height: auto;
+  }
+
+  .header-title h1 {
+    font-size: 22px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .rotacion-header {
+    margin-left: 16px;
+    text-align: left;
+  }
+
+  .rotacion-title {
+    display: block;
+    transform: none;
+    /* 🔹 quita desplazamiento visual */
+    margin-top: 8px;
+    /* baja de forma natural */
+    font-size: 18px;
+  }
+
+  .rotacion-separator {
+    width: 90%;
+    height: 2px;
+    margin: 10px auto 20px auto;
+  }
+
+  .table-row span,
+  .table-header span {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+}
+
+/* Quita líneas de Tabs */
+.ant-tabs-nav::before,
+.ant-tabs-ink-bar {
+  display: none !important;
+  border-bottom: none !important;
+}
+
+
+/* Mantén todos los textos de pestañas del mismo color */
+.ant-tabs-tab .ant-tabs-tab-btn {
+  color: #0023a0 !important;
+  /* color base del texto */
+  font-weight: 500;
+  transition: none;
+}
+
+/* Desactiva el cambio de color al seleccionar o enfocar */
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-btn:hover {
+  color: #0023a0 !important;
+  /* mismo color siempre */
+  font-weight: 500 !important;
+  /* mantiene grosor */
+}
+
+/* Opcional: quita sombreado de enfoque accesible */
+.ant-tabs-tab-btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================================
+   📱 RESPONSIVE MÓVIL (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .rh-board {
+    padding: 8px;
+  }
+
+  .rh-header,
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .header-blue {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 16px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .board-title {
+    font-size: 18px;
+  }
+
+  .board-subtitle {
+    font-size: 13px;
+  }
+
+  .header-update {
+    align-items: center;
+  }
+
+  .update-label {
+    font-size: 11px;
+  }
+
+  .update-date {
+    font-size: 16px !important;
+  }
+
+  /* Rotación */
+  .rotacion-header {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .rotacion-title {
+    transform: none;
+    font-size: 16px;
+    display: block;
+    margin: 10px 0;
+  }
+
+  .rotacion-separator {
+    width: 100%;
+    margin: 8px auto;
+  }
+
+  .rotacion-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .rotacion-item {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .rotacion-value {
+    font-size: 24px;
+    padding: 4px 20px;
+  }
+
+  .rotacion-subtabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .subtab {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  /* Cards */
+  .metric-card,
+  .secondary-card,
+  .departamento-card {
+    width: 100% !important;
+    margin-bottom: 12px;
+  }
+
+  /* Ausentismo */
+  .ausentismo-right-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .grafica-wrapper {
+    width: 100% !important;
+    min-height: 200px;
+  }
+
+  /* Tabs */
+  .ant-tabs-nav-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+
+  .ant-tabs-tab {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    flex-shrink: 0;
+  }
+
+  /* Tables */
+  .table-row span,
+  .table-header span {
+    font-size: 10px;
+    padding: 3px 4px;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Líneas divisoras */
+  .rotacion-line {
+    display: none;
+  }
+}
+
+/* ============================================================
+   📱 TABLET (481px - 768px)
+   ============================================================ */
+@media (min-width: 481px) and (max-width: 768px) {
+  .rh-board {
+    padding: 12px;
+  }
+
+  .header-blue {
+    padding: 8px 20px;
+  }
+
+  .board-title {
+    font-size: 22px;
+  }
+
+  .board-subtitle {
+    font-size: 15px;
+  }
+
+  .rotacion-title {
+    font-size: 18px;
+    transform: translateY(20px);
+  }
+
+  .rotacion-top {
+    gap: 20px;
+  }
+
+  .rotacion-item {
+    min-width: 120px;
+  }
+
+  .rotacion-value {
+    font-size: 28px;
+  }
+
+  /* Cards en 2 columnas */
+  .metric-card,
+  .secondary-card {
+    flex: 1 1 45% !important;
+    min-width: 200px;
+  }
+
+  .departamento-card {
+    width: 48% !important;
+  }
+
+  /* Ausentismo */
+  .ausentismo-right-col {
+    flex: 0 0 100% !important;
+  }
+
+  /* Tables */
+  .table-row span,
+  .table-header span {
+    font-size: 11px;
+    padding: 4px 5px;
+  }
+}
+
+/* ============================================================
+   📱 TABLET GRANDE (769px - 1024px)
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .rotacion-title {
+    font-size: 20px;
+    transform: translateY(30px);
+  }
+
+  .rotacion-top {
+    gap: 24px;
+  }
+
+  .rotacion-item {
+    min-width: 140px;
+  }
+
+  .ausentismo-right-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}

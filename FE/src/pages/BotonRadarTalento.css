@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratLocal';
+  src: url('/fonts/montserrat/Montserrat-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.btn-radar-talento {
+  background: #0023a0;
+  color: white;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;  /* espacio entre ícono y texto */
+}
+
+.btn-radar-talento:hover {
+  background: #0039d1;
+  transform: translateY(-2px);
+}
+
+.icono-radar {
+  display: inline-block;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .btn-radar-talento {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+  .btn-radar-talento {
+    width: 90%;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px;
+  }
+}

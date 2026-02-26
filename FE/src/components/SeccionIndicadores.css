@@ -1,0 +1,497 @@
+/* ===========================================
+   CONTENEDOR GENERAL
+=========================================== */
+.indicadores-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+/* ===========================================
+   CONTENEDOR DE CADA INDICADOR
+=========================================== */
+.indicador-container {
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #E0E7FF;
+    position: relative;
+}
+
+.indicador-container:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Divider visual antes de cada campaña */
+.indicador-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #003087, transparent);
+    opacity: 0.3;
+}
+
+.indicador-main-row {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    width: 100%;
+}
+
+
+/* ===========================================
+   BADGE IZQUIERDA (ocupa todo el alto)
+=========================================== */
+.indicador-badge {
+    background: linear-gradient(145deg, #003087 0%, #001850 100%);
+    color: white;
+    padding: 16px 24px;
+    font-weight: 700;
+    border-radius: 10px;
+    min-width: 200px;
+    max-width: 200px;
+    text-align: center;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 48, 135, 0.2);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .indicador-badge {
+        min-width: 160px;
+        max-width: 160px;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .indicador-badge {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+}
+
+.indicador-badge:hover {
+    background: linear-gradient(145deg, #004ab5 0%, #002870 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 48, 135, 0.3);
+}
+
+.indicador-badge .icon {
+    color: #FFA500 !important;
+    font-size: 16px;
+    display: inline-block;
+    transform: translateY(-1px);
+}
+
+/* ===========================================
+   COLUMNAS (botón + caja alineados verticalmente)
+=========================================== */
+.indicador-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .indicador-columna {
+        gap: 10px;
+    }
+}
+
+
+/* ===========================================
+   CAJAS DE VALORES (van debajo de cada botón)
+=========================================== */
+.indicador-box {
+    border: 2px solid #e6e9ef;
+    border-radius: 10px;
+    padding: 18px 16px;
+    background: white;
+    color: #003087;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s;
+}
+
+.indicador-box:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.pct {
+    color: #ff8c00;
+}
+
+/* El "| 05" NO se debe romper */
+.dias {
+    white-space: nowrap;
+    margin-left: 8px;
+    color: #003087;
+}
+
+@media (max-width: 1024px) {
+    .indicador-box {
+        padding: 14px 12px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .indicador-box {
+        padding: 12px 10px;
+        font-size: 14px;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .indicador-box {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+}
+
+/* Hace que el panel desplegable sea ancho completo */
+.full-width-panel {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 0;
+
+  /* rompe el layout horizontal del indicador-row */
+  flex-basis: 100%;
+  flex-grow: 1;
+  display: block;
+}
+
+/* el gráfico vuelve a ocupar todo el ancho */
+.full-width-panel .chart-wrapper {
+  width: 100% !important;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* la tabla también */
+.full-width-panel .campanias-wrapper,
+.full-width-panel table {
+  width: 100% !important;
+}
+/* ========================= */
+/*  ANIMACIÓN PANEL DESPLEGABLE */
+/* ========================= */
+
+.animate-panel {
+  animation: slideFade 0.95s ease-out;
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/*   BOTONES DE MESES */
+/* ========================= */
+
+.mes-boton {
+  background: #003087;
+  color: white;
+  border: none;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 48, 135, 0.2);
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .mes-boton {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+}
+
+.mes-boton:hover {
+  background: #002570;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 48, 135, 0.3);
+}
+
+.mes-boton.active {
+  background: #001850;
+  box-shadow: 0 3px 12px rgba(0, 48, 135, 0.4);
+}
+
+@media (max-width: 768px) {
+  .mes-boton {
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+  
+  .indicador-main-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mes-boton {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
+
+/* ========================================================= */
+/* ================ LANDSCAPE ORIENTACIÓN ================== */
+/* ========================================================= */
+
+/* Móvil landscape */
+@media (max-width: 896px) and (max-height: 500px) and (orientation: landscape) {
+  .indicadores-wrapper {
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .indicador-container {
+    margin-bottom: 12px;
+  }
+  
+  .indicador-main-row {
+    gap: 10px;
+  }
+  
+  .indicador-badge {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .indicador-box {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  
+  .mes-boton {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 768px) and (max-width: 1366px) and (max-height: 800px) and (orientation: landscape) {
+  .indicador-badge {
+    min-width: 180px;
+    max-width: 180px;
+  }
+  
+  .indicador-box {
+    padding: 14px 12px;
+  }
+}
+
+/* ========================= */
+/*   ANIMACIÓN DEL ÍCONO     */
+/* ========================= */
+
+.indicador-badge .icon {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 14px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #ffffff; /* blanco cuando está cerrado */
+}
+
+/* Flecha rotada y color cambiando al abrir */
+.indicador-badge .icon.open {
+  transform: rotate(180deg);
+  color: #ff0202;  /* dorado */
+}
+
+/* También puedes usar estos colores: 
+   #ffcc00 (amarillo)
+   #f59e0b (naranja)
+   #10b981 (verde éxito) */
+.indicador-row.open .indicador-badge {
+  background-color: #002b70; /* azul más claro para destacar */
+  border-color: #ffd54f;
+}
+
+/* =============================== */
+/*   HOVER PROFESIONAL DEL BOTÓN   */
+/* =============================== */
+
+.indicador-badge {
+  transition: 
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.18s ease;
+}
+
+/* Hover general */
+.indicador-badge:hover {
+  background-color: #003c9e; /* un azul más claro */
+  box-shadow: 0 4px 14px rgba(0, 80, 200, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Icono en hover */
+.indicador-badge:hover .icon {
+  transform: translateY(-1px);
+  color: #ffdd57; /* dorado */
+}
+
+/* Hover cuando el panel está abierto */
+.indicador-row.open .indicador-badge:hover {
+  background-color: #00347f;
+  border-color: #ffdd57;
+  box-shadow: 0 4px 18px rgba(255, 221, 87, 0.35);
+}
+
+
+
+
+/* ===========================================
+   RESPONSIVE: < 934px
+   (donde te colapsaba el "05")
+=========================================== */
+@media (max-width: 934px) {
+    .indicador-box {
+        flex: 1 1 260px;
+        /* Más cómodo en tablets */
+    }
+
+    .dias {
+        white-space: nowrap;
+    }
+
+        /* REFORZAR */
+    }
+}
+
+
+/* ===========================================
+   RESPONSIVE: < 768px
+   (La maqueta usa 2 columnas)
+=========================================== */
+@media (max-width: 768px) {
+    .indicador-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .indicador-cajas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .indicador-box {
+        flex: none;
+        min-width: unset;
+        width: 100%;
+    }
+
+    /* Para que la tercera caja ocupe toda la fila */
+    .indicador-box.ultimo {
+        grid-column: span 2;
+    }
+}
+
+
+/* ===========================================
+   RESPONSIVE: < 480px
+=========================================== */
+@media (max-width: 480px) {
+    .indicador-cajas {
+        grid-template-columns: 1fr;
+    }
+
+    .indicador-box.ultimo {
+        grid-column: span 1;
+    }
+}
+
+/* ========================================================= */
+/* ================ LANDSCAPE ORIENTACIÓN ================== */
+/* ========================================================= */
+
+/* Móvil landscape */
+@media (max-width: 896px) and (max-height: 500px) and (orientation: landscape) {
+  .indicadores-wrapper {
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .indicador-container {
+    margin-bottom: 12px;
+  }
+  
+  .indicador-main-row {
+    gap: 10px;
+  }
+  
+  .indicador-badge {
+    padding: 10px 16px;
+    font-size: 13px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+  
+  .indicador-box {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  
+  .mes-boton {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 768px) and (max-width: 1366px) and (max-height: 800px) and (orientation: landscape) {
+  .indicador-badge {
+    min-width: 180px;
+    max-width: 180px;
+  }
+  
+  .indicador-box {
+    padding: 14px 12px;
+  }
+}
