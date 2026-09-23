@@ -1,0 +1,6 @@
+﻿# El Excel financiero y sus respaldos NO se versionan (fuente de datos del tablero).
+*.xlsx
+*.xlsm
+*_respaldo_*
+*uploading*
+!.gitkeep

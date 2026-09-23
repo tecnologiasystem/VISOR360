@@ -22,7 +22,9 @@ from app.api.portafolio_api import router as portafolio_router  # Nuevo: API por
 from app.api.dias_habiles_api import router as dias_habiles_router  # Nuevo: API días hábiles
 from app.api.campana_configuracion_api import router as campana_configuracion_router
 from app.api.planta_activa_api import router as planta_activa_router  # Nuevo: Radar Talento Humano
-from app.api.permisos_api import router as permisos_router  # Nuevo: Gestión de Permisos
+from app.api.permisos_api import router as permisos_router
+# Nuevo: Dashboard Unit Economics (Analisis Financiero)
+from app.api.financiero_api import router as financiero_router
 
 # Crear una sola app
 app = FastAPI(
@@ -61,7 +63,8 @@ app.include_router(portafolio_router, prefix="/api")  # Nuevo: API portafolio BD
 app.include_router(dias_habiles_router, prefix="/api")  # Nuevo: API días hábiles
 app.include_router(campana_configuracion_router, prefix="/api")  # Nuevo: API configuración días campaña
 app.include_router(planta_activa_router, prefix="/api")  # Nuevo: Radar Talento Humano
-app.include_router(permisos_router, prefix="/api/permisos", tags=["Permisos"])  # Nuevo: Gestión de Permisos
+app.include_router(permisos_router, prefix="/api/permisos", tags=["Permisos"])
+app.include_router(financiero_router, prefix="/api")  # Nuevo: Analisis Financiero
 
 
 @app.get("/")
