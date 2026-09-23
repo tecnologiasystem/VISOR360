@@ -1,11 +1,22 @@
+import os
+from pathlib import Path
 import pyodbc
+# Las credenciales se leen de variables de entorno (archivo .env local, que NO se
+# versiona). Ver BE/.env.example para la plantilla. Nunca poner secretos aqui.
+# Se carga el .env de la raiz de BE aqui mismo para que funcione sin importar el
+# orden de imports y sin depender de que main.py lo cargue antes.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+except ImportError:  # python-dotenv no instalado: se usan solo variables de entorno reales
+    pass
 
 # ----------------------------- BD 1 (export_planeacion) -----------------------------
 DB1_CONFIG = {
-    "server": "172.18.79.20",
-    "database": "export_planeacion",
-    "username": "export_readonly",
-    "password": "REDACTED_ROTATE_THIS_PASSWORD"
+    "server": os.getenv("DB1_SERVER", "172.18.79.20"),
+    "database": os.getenv("DB1_DATABASE", "export_planeacion"),
+    "username": os.getenv("DB1_USERNAME", ""),
+    "password": os.getenv("DB1_PASSWORD", "")
 }
 
 def get_connection():
@@ -18,13 +29,12 @@ def get_connection():
     )
     return pyodbc.connect(conn_str)
 
-
 # ----------------------------- BD 2 (LOGS) -----------------------------
 DB2_CONFIG = {
-    "server": "172.18.72.111",
-    "database": "LOGS",
-    "username": "NEXUM",
-    "password": "REDACTED_ROTATE_THIS_PASSWORD"   # <--- ESTA ES LA CORRECTA
+    "server": os.getenv("DB2_SERVER", "172.18.72.111"),
+    "database": os.getenv("DB2_DATABASE", "LOGS"),
+    "username": os.getenv("DB2_USERNAME", ""),
+    "password": os.getenv("DB2_PASSWORD", "")
 }
 
 def get_connection1():
@@ -37,27 +47,21 @@ def get_connection1():
         f"TrustServerCertificate=yes;"
         f"Encrypt=no;"
     )
-    
-    return pyodbc.connect(conn_str, autocommit=True)
 
+    return pyodbc.connect(conn_str, autocommit=True)
 
 # ----------------------------- BD 3 (Portafolio - vw_recaudos_portafolio) -----------------------------
 # Esta BD contiene la vista vw_recaudos_portafolio con datos de Colombia
 # NOTA: La vista está en la misma BD export_planeacion, usamos las mismas credenciales
 # Campañas disponibles:
 #   NPL: SYSTEMGROUP CREDIVALORES NPL
-#   ACC: SYSTEMGROUP ACCION FIDUCIARIA- DENTIX, SYSTEMGROUP ADAMANTINE - COLPATRIA NPL, 
+#   ACC: SYSTEMGROUP ACCION FIDUCIARIA- DENTIX, SYSTEMGROUP ADAMANTINE - COLPATRIA NPL,
 #        SYSTEMGROUP JCAP, SYSTEMGROUP PRA GROUP
-# 
-# Credenciales nuevas para futuro (cuando se active el usuario):
-#   server: 172.18.79.20,1433
-#   username: export_readonly
-#   password: REDACTED_ROTATE_THIS_PASSWORD
 DB3_CONFIG = {
-    "server": "172.18.79.20",  # Mismo servidor que BD1
-    "database": "export_planeacion",  # La vista está en esta BD
-    "username": "export_readonly",
-    "password": "REDACTED_ROTATE_THIS_PASSWORD"  # Usando password que funciona actualmente
+    "server": os.getenv("DB3_SERVER", "172.18.79.20"),  # Mismo servidor que BD1
+    "database": os.getenv("DB3_DATABASE", "export_planeacion"),  # La vista está en esta BD
+    "username": os.getenv("DB3_USERNAME", ""),
+    "password": os.getenv("DB3_PASSWORD", "")
 }
 
 def get_connection_portafolio():

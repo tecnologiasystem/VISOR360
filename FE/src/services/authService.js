@@ -2,34 +2,6 @@ import { apiClient } from './apiService';
 
 const authService = {
   login: async (username, password) => {
-    // BYPASS TEMPORAL DE DESARROLLO: sin BD de login disponible, permite
-    // entrar con estas credenciales fijas para probar la UI. Quitar antes de producción.
-    if (username === 'REDACTED_DEV_USER' && password === 'REDACTED_DEV_PASSWORD') {
-      const mockUser = {
-        id: 0,
-        username,
-        name: 'Dev Admin',
-        email: username,
-        rol_nombre: 'Administrador',
-        torre_control: true,
-        financiero: true,
-        recursos_humanos: true,
-        gestion_metas: true,
-        gestion_usuarios: true,
-        campanas: [],
-        inversionistas: [],
-        permisos: {
-          torre_de_control: true,
-          financiero: true,
-          recursos_humanos: true,
-          metas: true
-        },
-        permissions: [],
-        roles: ['Administrador']
-      };
-      return { token: 'REDACTED_TOKEN', user: mockUser };
-    }
-
     try {
       console.log('🔑 Intentando login con:', username);
 
