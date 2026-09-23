@@ -1,0 +1,56 @@
+# ============================================================
+# VISOR360 - .gitignore raiz
+# Sacado del control de versiones para no filtrar informacion
+# delicada ni inflar el repo con dependencias regenerables.
+# (Los archivos siguen en disco; solo se dejan de rastrear.)
+# ============================================================
+
+# --- Entornos virtuales de Python (regenerables con requirements.txt) ---
+BE/venv/
+BE/.venv/
+venv/
+.venv/
+**/venv/
+**/.venv/
+
+# --- Dependencias y build de Node (regenerables con npm install) ---
+FE/node_modules/
+node_modules/
+FE/dist/
+dist/
+
+# --- Bytecode Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Variables de entorno y secretos ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# --- Credenciales / configuracion local ---
+*.secret
+credentials.json
+secrets.json
+
+# --- Datos de negocio (Excel / hojas) ---
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+
+# --- Logs ---
+*.log
+
+# --- Herramientas locales / worktrees / editores ---
+.kilo/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
